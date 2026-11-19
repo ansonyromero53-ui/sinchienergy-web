@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /api/
+Disallow: /cuenta.html
+
+Sitemap: https://sinchienergy.com/sitemap.xml

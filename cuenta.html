@@ -1,0 +1,1130 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mi cuenta · SINCHI Energy</title>
+<meta name="description" content="Crea tu cuenta SINCHI o inicia sesión para ver tus separaciones y enterarte primero del lanzamiento.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/favicon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0A0908">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0A0908;--ink2:#12100E;--line:#2A241F;--text:#F4F1EC;--muted:#8d857c;--soft:#b7aea4;--org:#FF6A1A;--org2:#FFB27A}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{background:var(--ink);color:var(--text);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:-20%;z-index:-2;pointer-events:none;background:radial-gradient(42% 38% at 18% 20%,rgba(255,106,26,.30),transparent 70%),radial-gradient(38% 34% at 95% 95%,rgba(255,106,26,.14),transparent 70%);filter:blur(30px);animation:pulse 18s ease-in-out infinite alternate}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.9;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.06'/%3E%3C/svg%3E")}
+@keyframes pulse{0%{transform:translate(0,0) scale(1)}100%{transform:translate(2%,-2%) scale(1.06)}}
+::selection{background:var(--org);color:var(--ink)}
+a{color:var(--soft);text-decoration:none}a:hover{color:#fff}
+
+
+.shell{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);min-height:100vh}
+
+/* Lado de marca */
+.side{position:sticky;top:0;height:100vh;min-height:640px;padding:44px 56px;display:grid;grid-template-rows:auto auto minmax(0,1fr) auto;gap:26px;overflow:hidden;border-right:1px solid #1d1915}
+.logo{display:flex;align-items:center;gap:12px;color:var(--text)}
+.logo svg{fill:var(--org)}
+.logo span{font-family:Archivo,sans-serif;font-stretch:125%;font-weight:800;font-size:19px;letter-spacing:.16em}
+.side-copy{position:relative;z-index:2;max-width:560px;margin-top:3vh}
+.kicker{margin:0 0 18px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:14px}
+.kicker::before{content:"";width:32px;height:1px;background:var(--org)}
+.side h1{margin:0;font-family:Archivo,sans-serif;font-stretch:118%;font-weight:800;font-size:clamp(44px,5vw,80px);line-height:.92;letter-spacing:-.02em}
+.side h1 .grad{background:linear-gradient(100deg,#F4F1EC 15%,var(--org2) 50%,var(--org) 78%,#F4F1EC 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 7s linear infinite}
+@keyframes shine{to{background-position:200% center}}
+.side p.lead{margin:18px 0 0;color:var(--muted);font-size:16px;line-height:1.7;max-width:440px}
+.visual{position:relative;z-index:1;pointer-events:none;min-height:0;display:flex;align-items:center;justify-content:center}
+.visual img{position:relative;max-width:100%;max-height:100%;width:auto;height:auto;display:block;filter:drop-shadow(0 40px 40px rgba(0,0,0,.6));animation:floaty 7s ease-in-out infinite}
+.visual::before{content:"";position:absolute;inset:15% 15% 5%;border-radius:50%;background:radial-gradient(closest-side,rgba(255,106,26,.45),transparent);filter:blur(30px)}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.perks{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);max-width:620px}
+.perks div{padding:20px 18px 0 0}
+.perks div+div{padding-left:18px;border-left:1px solid var(--line)}
+.perks b{display:block;font-family:Archivo,sans-serif;font-stretch:112%;font-weight:600;font-size:15px;margin-bottom:6px}
+.perks span{font-size:13px;line-height:1.5;color:var(--muted)}
+
+/* Lado del formulario */
+.main{display:flex;align-items:center;justify-content:center;padding:44px 40px}
+.card{width:100%;max-width:460px;background:linear-gradient(160deg,rgba(26,21,16,.86),rgba(12,10,8,.9));border:1px solid var(--line);border-radius:28px;padding:38px 36px 32px;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 30px 80px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.04);animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+.tabs{position:relative;display:grid;grid-template-columns:1fr 1fr;background:#0A0908;border:1px solid var(--line);border-radius:999px;padding:5px;margin-bottom:30px}
+.tabs button{position:relative;z-index:1;border:0;background:none;color:var(--muted);font:600 14px Inter,sans-serif;height:42px;border-radius:999px;cursor:pointer;transition:color .3s}
+.tabs button[aria-selected=true]{color:var(--ink)}
+.tabs .pill{position:absolute;top:5px;bottom:5px;left:5px;width:calc(50% - 5px);border-radius:999px;background:var(--org);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.tabs[data-on=login] .pill{transform:translateX(100%)}
+
+.view{display:none;animation:fade .5s ease both}
+.view.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.view h2{margin:0;font-family:Archivo,sans-serif;font-stretch:115%;font-weight:700;font-size:30px;letter-spacing:-.01em}
+.view .sub{margin:8px 0 26px;color:var(--muted);font-size:14px;line-height:1.6}
+
+.gbtn{width:100%;height:52px;border-radius:999px;border:1px solid #747775;background:#fff;color:#1f1f1f;font:500 15px Inter,sans-serif;display:flex;align-items:center;justify-content:center;gap:12px;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.gbtn:hover{transform:translateY(-1px);box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.glogo{width:20px;height:20px;display:block}
+.gbtn i{width:20px;height:20px;border-radius:4px;border:1px dashed #b9b9b9;display:grid;place-items:center;font:600 9px Inter,sans-serif;font-style:normal;color:#9a9a9a}
+.or{display:flex;align-items:center;gap:14px;margin:22px 0;color:#5f5850;font-size:11px;letter-spacing:.24em;text-transform:uppercase}
+.or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
+
+form{display:flex;flex-direction:column;gap:14px}
+.field{position:relative}
+.field input{width:100%;height:58px;border-radius:14px;border:1px solid #2f2822;background:#0A0908;color:var(--text);padding:22px 16px 6px;font:16px Inter,sans-serif;transition:border-color .2s,box-shadow .2s}
+.field label{position:absolute;left:17px;top:19px;font-size:15px;color:#6f675f;pointer-events:none;transition:all .2s}
+.field input:focus{outline:0;border-color:var(--org);box-shadow:0 0 0 4px rgba(255,106,26,.14)}
+.field input:focus+label,.field input:not(:placeholder-shown)+label{top:9px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--org2)}
+.field.phone input{padding-left:70px}
+.field.phone .cc{position:absolute;left:17px;top:22px;line-height:30px;font-size:16px;color:var(--soft);padding-right:12px;border-right:1px solid #2f2822}
+.field.phone label{left:70px}
+.field.phone input:focus+label,.field.phone input:not(:placeholder-shown)+label{left:70px}
+.field .eye{position:absolute;right:10px;top:12px;height:34px;padding:0 10px;border:0;background:none;color:var(--muted);font:500 12px Inter,sans-serif;letter-spacing:.06em;cursor:pointer}
+.field .eye:hover{color:#fff}
+.meter{display:flex;gap:6px;margin-top:-4px}
+.meter span{flex:1;height:3px;border-radius:3px;background:#2a241f;transition:background .3s}
+.meter-txt{margin:-6px 0 0;font-size:12px;color:var(--muted);min-height:1em}
+
+.sport{margin-top:4px}
+.sport p{margin:0 0 10px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.sport p em{font-style:normal;letter-spacing:0;text-transform:none;color:#5f5850}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{border:1px solid #3a322b;background:transparent;color:var(--soft);height:36px;padding:0 15px;border-radius:999px;font:500 13px Inter,sans-serif;cursor:pointer;transition:all .2s}
+.chips button:hover{border-color:#5a4e44;color:#fff}
+.chips button[aria-pressed=true]{background:rgba(255,106,26,.14);border-color:var(--org);color:#fff}
+
+.check{display:flex;gap:12px;align-items:flex-start;font-size:13px;line-height:1.55;color:var(--soft);cursor:pointer}
+.check input{appearance:none;flex:none;width:20px;height:20px;margin:1px 0 0;border-radius:6px;border:1px solid #4a4038;background:#0A0908;cursor:pointer;display:grid;place-items:center;transition:all .2s}
+.check input:checked{background:var(--org);border-color:var(--org)}
+.check input:checked::after{content:"";width:6px;height:10px;border:solid var(--ink);border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.check a{color:#fff;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.3)}
+
+.go{position:relative;overflow:hidden;margin-top:6px;height:56px;border:0;border-radius:999px;background:var(--org);color:var(--ink);font:700 15px Inter,sans-serif;letter-spacing:.03em;cursor:pointer;transition:transform .2s,background .2s}
+.go:hover{transform:translateY(-2px);background:#ff7d36}
+.go::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:sweep 3.8s ease-in-out infinite}
+@keyframes sweep{0%,60%{left:-60%}100%{left:130%}}
+.msg{margin:0;font-size:13px;min-height:1.2em;color:#FF8A6A}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.link{border:0;background:none;padding:0;color:var(--soft);font:500 13px Inter,sans-serif;cursor:pointer;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.25)}
+.link:hover{color:#fff}
+.foot{margin:24px 0 0;text-align:center;font-size:12px;color:#6f675f;line-height:1.6}
+.foot a{color:#b7aea4;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.2)}
+.brandline{margin:18px 0 0;padding-top:18px;border-top:1px solid var(--line);text-align:center;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#4f4943}
+
+.done{text-align:center;padding:10px 0}
+.done .ring{width:84px;height:84px;margin:0 auto 22px;border-radius:50%;border:1px solid rgba(255,106,26,.5);display:grid;place-items:center;box-shadow:0 0 0 10px rgba(255,106,26,.06),0 0 60px rgba(255,106,26,.3)}
+.done .ring svg{width:34px;height:34px;stroke:var(--org);fill:none;stroke-width:2.2;stroke-dasharray:60;stroke-dashoffset:60;animation:draw .9s .2s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.done h2{font-size:28px}
+.done .sub b{color:#fff;font-weight:500}
+.ghost{height:50px;border-radius:999px;border:1px solid rgba(255,255,255,.2);background:transparent;color:var(--text);font:600 14px Inter,sans-serif;cursor:pointer;padding:0 26px}
+.ghost:hover{border-color:rgba(255,255,255,.4)}
+
+@media(max-width:980px){
+  .shell{grid-template-columns:1fr}
+  .side{position:relative;height:auto;min-height:0;border-right:0;padding:26px 22px 0;display:block}
+  .side-copy{margin-top:26px}
+  .side h1{font-size:46px}
+  .side p.lead{display:none}
+  .visual,.perks{display:none}
+  .main{padding:26px 16px 40px;align-items:flex-start}
+  .card{padding:28px 22px 24px;border-radius:24px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+[hidden]{display:none!important}
+.view{display:none}
+.loading{display:flex;justify-content:center;padding:70px 0}
+.loading span{width:34px;height:34px;border-radius:50%;border:2px solid #2a241f;border-top-color:var(--org);animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.gslot{min-height:44px;display:flex;justify-content:center}
+.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0}
+.msg.good{color:#7BE495}
+.link.center{align-self:center;margin-top:6px}
+.go:disabled{opacity:.65;cursor:default;transform:none}
+.go.small{height:50px;font-size:14px}
+.go.inline{display:inline-flex;align-items:center;justify-content:center;padding:0 26px;text-decoration:none;color:var(--ink)}
+.mi-k{margin:0 0 10px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--org2)}
+.notice{display:flex;flex-direction:column;gap:10px;align-items:flex-start;margin:0 0 22px;padding:16px 18px;border:1px solid rgba(255,106,26,.45);background:rgba(255,106,26,.08);border-radius:16px}
+.notice p{margin:0;font-size:13px;line-height:1.6;color:var(--soft)}
+.notice b{color:#fff;font-weight:500}
+.block{border-top:1px solid var(--line);padding:22px 0 6px}
+.block-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px}
+.block h3{margin:0;font-family:Archivo,sans-serif;font-stretch:112%;font-weight:600;font-size:18px}
+.block-h a.link{text-decoration:none;color:var(--org2)}
+.sep-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:#0A0908;margin-bottom:10px}
+.sep-row b{display:block;font-weight:600;font-size:15px}
+.sep-row span{font-size:12px;color:var(--muted)}
+.st{font-style:normal;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--org2);border:1px solid rgba(255,178,122,.4);border-radius:999px;padding:6px 10px;white-space:nowrap}
+.st.ok{color:#7BE495;border-color:rgba(123,228,149,.4)}
+.empty{display:flex;flex-direction:column;align-items:flex-start;gap:14px;padding:18px;border:1px dashed #3a322b;border-radius:14px}
+.empty p{margin:0;color:var(--muted);font-size:14px}
+.mi-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;margin-top:22px;padding-top:22px;border-top:1px solid var(--line)}
+.mi-actions .ghost{display:inline-flex;align-items:center;text-decoration:none;height:46px;font-size:13px}
+.toast{position:fixed;left:50%;top:22px;z-index:50;transform:translate(-50%,-20px);opacity:0;max-width:calc(100% - 32px);padding:14px 22px;border-radius:999px;background:#F4F1EC;color:#0A0908;font:600 14px Inter,sans-serif;box-shadow:0 20px 50px rgba(0,0,0,.5);transition:all .4s cubic-bezier(.2,.8,.2,1)}
+.toast.in{transform:translate(-50%,0);opacity:1}
+.toast.bad{background:#FF8A6A}
+.view.on{display:block}
+@media(max-width:980px){.is-mi .side-copy{display:none}}
+
+/* ================= Mi SINCHI v11 ================= */
+body.is-mi .shell{grid-template-columns:1fr}
+body.is-mi .side{display:none}
+body.is-mi .main{display:block;padding:0 clamp(18px,4.5vw,64px) 48px}
+body.is-mi .card{max-width:1200px;margin:0 auto;background:none;border:0;border-radius:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;padding:0;animation:none}
+body.is-mi .brandline{margin-top:64px}
+
+.mi-top{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0;border-bottom:1px solid var(--line)}
+.mi-logo{display:flex;align-items:center;gap:12px;color:var(--text)}
+.mi-logo svg{fill:var(--org)}
+.mi-logo span{font-family:Archivo,sans-serif;font-stretch:125%;font-weight:800;font-size:18px;letter-spacing:.16em}
+.mi-nav{display:flex;align-items:center;gap:28px;font-size:14px}
+.mi-nav a{color:var(--soft)}
+.mi-nav a:hover{color:#fff}
+.mi-nav button{height:40px;padding:0 18px;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:none;color:var(--text);font:500 13px Inter,sans-serif;cursor:pointer;transition:border-color .2s}
+.mi-nav button:hover{border-color:var(--org)}
+
+.mi-hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(32px,5vw,80px);align-items:center;padding:clamp(44px,7vw,96px) 0 clamp(40px,5vw,72px)}
+#v-mi #miHola{margin:0;font-family:Archivo,sans-serif;font-stretch:62%;font-weight:800;text-transform:uppercase;font-size:clamp(68px,11vw,168px);line-height:.84;letter-spacing:-.005em;color:var(--text);overflow-wrap:break-word}
+.mi-desde{margin:26px 0 0;max-width:430px;font-size:17px;line-height:1.6;color:var(--soft)}
+#v-mi .notice{margin:26px 0 0;max-width:460px}
+
+/* dorsal */
+.bib-wrap{display:flex;justify-content:center;perspective:1100px}
+.bib{position:relative;width:100%;max-width:440px;aspect-ratio:1.16;display:flex;flex-direction:column;padding:24px 0 0;border-radius:14px;color:#0A0908;
+  background:#EEE8DE url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E");
+  box-shadow:0 46px 90px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.06);transform-style:preserve-3d;transition:transform .45s cubic-bezier(.2,.8,.2,1);animation:pinned 1s cubic-bezier(.2,.8,.2,1) .15s both}
+@keyframes pinned{from{opacity:0;transform:translateY(-36px) rotate(-5deg)}to{opacity:1;transform:none}}
+.bib.stamp .bib-num{animation:stamp .6s cubic-bezier(.2,.8,.2,1)}
+@keyframes stamp{0%{transform:scale(1)}35%{transform:scale(1.06);color:var(--org)}100%{transform:scale(1)}}
+.pin{position:absolute;width:12px;height:12px;border-radius:50%;background:#0A0908;box-shadow:0 0 0 3px #D8D0C3,inset 0 1px 2px rgba(255,255,255,.3)}
+.p1{top:14px;left:14px}.p2{top:14px;right:14px}.p3{bottom:60px;left:14px}.p4{bottom:60px;right:14px}
+.bib-band{display:flex;justify-content:space-between;margin:0 40px;padding-bottom:12px;border-bottom:3px solid var(--org);font:700 13px Inter,sans-serif;letter-spacing:.02em}
+.bib-num{margin:8px 0 0;text-align:center;font-family:Archivo,sans-serif;font-stretch:62%;font-weight:800;font-size:clamp(116px,14vw,176px);line-height:.9;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.bib-name{margin:4px 24px 0;text-align:center;font-family:Archivo,sans-serif;font-stretch:100%;font-weight:700;font-size:20px;text-transform:uppercase;letter-spacing:.03em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bib-sports{margin:6px 24px 0;text-align:center;font-size:13px;color:#5B544D;min-height:1.3em}
+.bib-tear{margin-top:auto;display:flex;justify-content:space-between;gap:12px;padding:13px 26px 15px;border-top:2px dashed #B9B0A3;border-radius:0 0 14px 14px;background:#E5DED2;font-size:12px;color:#5B544D}
+
+/* avance */
+.mi-steps{list-style:none;margin:0;padding:30px 0;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);counter-reset:paso}
+.mi-steps li{position:relative;padding-right:22px;counter-increment:paso}
+.mi-steps li::before{content:counter(paso);position:relative;z-index:1;display:grid;place-items:center;width:32px;height:32px;margin-bottom:16px;border-radius:50%;border:1px solid #3A322B;background:var(--ink);color:var(--muted);font:600 13px Inter,sans-serif}
+.mi-steps li::after{content:"";position:absolute;left:32px;right:0;top:16px;height:1px;background:#3A322B}
+.mi-steps li:last-child::after{display:none}
+.mi-steps li.is-done::before{content:"";border-color:var(--org);background:var(--org) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' fill='none' stroke='%230A0908' stroke-width='3'/%3E%3C/svg%3E") center/16px no-repeat}
+.mi-steps li.is-done::after{background:var(--org)}
+.mi-steps li.is-now::before{border-color:var(--org);color:var(--org);box-shadow:0 0 0 6px rgba(255,106,26,.14)}
+.mi-steps b{display:block;font-family:Archivo,sans-serif;font-stretch:100%;font-weight:600;font-size:17px;color:var(--text)}
+.mi-steps li:not(.is-done):not(.is-now) b{color:var(--soft)}
+.mi-steps span{display:block;margin-top:5px;font-size:13px;line-height:1.5;color:var(--muted)}
+
+/* bloques */
+.mi-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);padding-top:56px}
+.blk-h{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:22px}
+#v-mi .blk-h h2,#v-mi .invite h2{margin:0;font-family:Archivo,sans-serif;font-stretch:62%;font-weight:800;text-transform:uppercase;letter-spacing:0;line-height:.92}
+#v-mi .blk-h h2{font-size:44px}
+.blk-a{flex:none;white-space:nowrap;padding:0;border:0;background:none;color:var(--org2);font:600 14px Inter,sans-serif;text-decoration:none;cursor:pointer}
+.blk-a:hover{color:#fff}
+.blk-a[hidden]{display:none}
+.tk{display:grid;grid-template-columns:62px 1fr auto;gap:18px;align-items:center;margin-bottom:12px;padding:14px 20px 14px 12px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(160deg,#17130F,#0C0A08)}
+.tk img{width:62px;height:78px;object-fit:contain;filter:drop-shadow(0 10px 14px rgba(0,0,0,.6))}
+.tk b{display:block;font-size:16px;font-weight:600;color:var(--text)}
+.tk span{display:block;margin-top:2px;font-size:13px;color:var(--muted)}
+.tk .st{display:inline-block;margin-top:10px}
+.tk .qty{font-family:Archivo,sans-serif;font-stretch:62%;font-weight:800;font-size:40px;line-height:1;color:var(--text)}
+#v-mi .empty{padding:26px;border-radius:16px}
+.datos{display:grid;grid-template-columns:auto 1fr;margin:0;border-top:1px solid var(--line)}
+.datos dt,.datos dd{margin:0;padding:16px 0;border-bottom:1px solid var(--line)}
+.datos dt{padding-right:28px;font-size:13px;color:var(--muted)}
+.datos dd{text-align:right;font-size:15px;color:var(--text);overflow-wrap:break-word}
+.datos.flash dd{animation:flash 1.4s ease}
+@keyframes flash{0%{color:var(--org2)}100%{color:var(--text)}}
+#f-datos{animation:fade .35s ease both}
+.f-actions{display:flex;gap:10px;margin-top:4px}
+.f-actions .ghost{height:50px;flex:none}
+.save{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:10px;margin-top:0;transition:background .35s,color .35s,transform .2s}
+.save:disabled::after{display:none}
+.save .ic{display:none;width:18px;height:18px;flex:none}
+.save.is-busy .ic-spin{display:block;border:2px solid rgba(10,9,8,.25);border-top-color:#0A0908;border-radius:50%;animation:spin .7s linear infinite}
+.save.is-done,.save.is-done:disabled{opacity:1;background:#F4F1EC}
+.save.is-done .ic-ok{display:block}
+.save .ic-ok path{fill:none;stroke:#0A0908;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:24;stroke-dashoffset:24}
+.save.is-done .ic-ok path{animation:draw .45s .05s ease forwards}
+
+/* invitar */
+.invite{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:end;margin-top:64px;padding:clamp(30px,4.5vw,56px);border-radius:26px;background:var(--org);color:#0A0908}
+#v-mi .invite h2{font-size:clamp(48px,6.4vw,84px);color:#0A0908}
+.invite p{margin:14px 0 0;max-width:440px;font-size:15px;line-height:1.6;color:#2A1408}
+.invite-b{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
+#v-mi .invite .go.inline{background:#0A0908;color:#F4F1EC}
+#v-mi .invite .go.inline:hover{background:#1d1814}
+#v-mi .invite .ghost{border-color:rgba(10,9,8,.4);color:#0A0908;height:50px}
+#v-mi .invite .ghost:hover{border-color:#0A0908}
+
+:focus-visible{outline:2px solid var(--org2);outline-offset:3px}
+
+@media(max-width:900px){
+  .mi-hero,.mi-grid,.invite{grid-template-columns:1fr}
+  .mi-hero{padding-top:36px}
+  .mi-steps{grid-template-columns:1fr 1fr;row-gap:28px}
+  .mi-steps li:nth-child(2)::after{display:none}
+  .invite-b{justify-content:flex-start}
+  .mi-nav a:not(#miAdmin){display:none}
+}
+@media(max-width:520px){
+  .mi-steps{grid-template-columns:1fr}
+  .mi-steps li::after{display:none}
+  #v-mi .blk-h h2{font-size:38px}
+  .bib-band{margin:0 34px;font-size:12px}
+  .bib-tear{font-size:11px;padding:12px 18px 14px}
+}
+
+/* ===== v11.2: capa premium ===== */
+.mi-top{position:sticky;top:0;z-index:20;padding:22px 0;box-shadow:0 0 0 100vmax rgba(10,9,8,.72);clip-path:inset(0 -100vmax);background:rgba(10,9,8,.72);backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%)}
+.mi-hero{position:relative;isolation:isolate}
+body.is-mi .shell{overflow-x:clip}
+.mi-bgword{position:absolute;z-index:-1;left:50%;top:50%;margin:0;transform:translate(-50%,-50%);font-family:Archivo,sans-serif;font-stretch:62%;font-weight:800;font-size:clamp(220px,34vw,520px);line-height:.8;letter-spacing:-.01em;color:transparent;-webkit-text-stroke:1px rgba(244,241,236,.06);white-space:nowrap;pointer-events:none;user-select:none}
+#v-mi #miHola .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.04em}
+#v-mi #miHola .w>span{display:inline-block}
+#v-mi #miHola .w>span.in{animation:wrise .95s cubic-bezier(.16,.84,.24,1) both;animation-delay:calc(var(--d)*110ms + 80ms)}
+@keyframes wrise{from{transform:translateY(105%)}to{transform:none}}
+.mi-stats{display:flex;gap:0;margin-top:34px;max-width:520px;border-top:1px solid var(--line)}
+.mi-stats div{flex:1;padding:18px 18px 0 0}
+.mi-stats div+div{padding-left:18px;border-left:1px solid var(--line)}
+.mi-stats b{display:block;font-family:Archivo,sans-serif;font-stretch:62%;font-weight:800;font-size:54px;line-height:.9;color:var(--text);font-variant-numeric:tabular-nums}
+.mi-stats span{display:block;margin-top:8px;font-size:12px;line-height:1.4;color:var(--muted)}
+
+/* dorsal premium */
+.bib{padding-top:0;overflow:hidden;background:
+  linear-gradient(100deg,rgba(0,0,0,.07),transparent 26%,transparent 72%,rgba(0,0,0,.09)),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E"),#EFE9DF}
+.bib-band{margin:0;padding:16px 40px 14px;border:0;background:var(--org);color:#0A0908;align-items:center}
+.bib-logo{display:inline-flex;align-items:center;gap:8px;font-family:Archivo,sans-serif;font-stretch:125%;font-weight:800;letter-spacing:.14em;font-size:13px}
+.bib-logo svg{fill:#0A0908}
+.bib .p1,.bib .p2{top:17px;box-shadow:0 0 0 3px rgba(10,9,8,.18),inset 0 1px 2px rgba(255,255,255,.3)}
+.bib-num{margin-top:12px}
+.bib-tear{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 22px 14px}
+.bib-tear-t{display:flex;flex-direction:column;gap:3px;min-width:0}
+.bib-code{display:block;flex:none;width:118px;height:30px}
+.bib-code svg{display:block;width:100%;height:100%;fill:#0A0908}
+.bib-glare{position:absolute;inset:0;pointer-events:none;border-radius:inherit;opacity:.0;transition:opacity .4s;background:radial-gradient(circle at var(--gx,50%) var(--gy,0%),rgba(255,255,255,.75),rgba(255,255,255,0) 42%);mix-blend-mode:soft-light}
+.bib-wrap:hover .bib-glare{opacity:1}
+.bib .p3,.bib .p4{bottom:66px}
+
+/* avance animado */
+.mi-steps li.is-done::after{transform-origin:left;animation:fill .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i)*180ms + 700ms)}
+@keyframes fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+/* tickets troquelados */
+.tk{position:relative;grid-template-columns:62px 1fr 92px;padding-right:0}
+.tk .qty{align-self:stretch;display:grid;place-items:center;border-left:2px dashed #3A322B;margin:-14px 0;font-size:44px}
+.tk{margin-bottom:16px}.tk::before,.tk::after{content:"";position:absolute;right:83px;width:18px;height:18px;border-radius:50%;background:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.tk::before{top:-10px}.tk::after{bottom:-10px}
+
+/* invitar con producto */
+.invite{position:relative;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);align-items:center;margin-top:140px;overflow:visible}
+.invite-t .invite-b{justify-content:flex-start;margin-top:28px}
+.invite-img{position:relative;width:118%;max-width:620px;height:auto;margin:-170px -40px -60px auto;justify-self:end;transform:rotate(-7deg);filter:drop-shadow(0 40px 50px rgba(60,18,0,.55));pointer-events:none}
+
+@media(max-width:900px){
+  .invite{grid-template-columns:1fr;margin-top:90px}
+  .mi-bgword{display:none}
+  .invite-img{order:-1;width:86%;margin:-120px auto -10px;justify-self:center}
+  .mi-stats b{font-size:46px}
+}
+@media(max-width:520px){
+  .mi-stats div{padding-right:10px}.mi-stats div+div{padding-left:12px}
+  .bib-band{padding:14px 34px 12px}
+  .bib-code{width:84px}
+  .tk{grid-template-columns:54px 1fr 74px}
+  .tk::before,.tk::after{right:65px}
+  .tk .qty{font-size:36px}
+}
+@media(prefers-reduced-motion:reduce){#v-mi #miHola .w>span.in,.mi-steps li.is-done::after,.bib{animation:none}}
+
+/* ===== v11.3: una pieza por deporte ===== */
+.bib-wrap{flex-direction:column;align-items:center;gap:18px}
+.bib-kind{display:none;margin:14px 0 0;text-align:center;font-size:12px;font-weight:600;color:#5B544D}
+.bib.swap{animation:swap .5s cubic-bezier(.2,.8,.2,1)}
+@keyframes swap{from{opacity:.2;transform:rotateY(-18deg) scale(.97)}to{opacity:1;transform:none}}
+.bib-sw{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.bib-sw button{height:34px;padding:0 14px;border-radius:999px;border:1px solid #3A322B;background:transparent;color:var(--soft);font:500 13px Inter,sans-serif;cursor:pointer;transition:all .2s}
+.bib-sw button:hover{color:#fff;border-color:#5a4e44}
+.bib-sw button[aria-pressed=true]{background:var(--text);border-color:var(--text);color:#0A0908}
+
+/* trail: curvas de nivel en la banda */
+.bib.s-trail .bib-band{background:var(--org) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='60' viewBox='0 0 160 60'%3E%3Cg fill='none' stroke='%230A0908' stroke-opacity='.18'%3E%3Cpath d='M-10 50c30-30 60-30 90-10s60 20 90-10'/%3E%3Cpath d='M-10 38c30-26 60-26 90-8s60 16 90-12'/%3E%3Cpath d='M-10 26c30-22 60-22 90-6s60 12 90-14'/%3E%3Cpath d='M-10 14c30-18 60-18 90-4s60 8 90-16'/%3E%3C/g%3E%3C/svg%3E") center/160px 60px}
+/* triatlón: tres tramos */
+.bib.s-triatlon .bib-band{background:linear-gradient(90deg,var(--org) 0 33.3%,#FF8A3D 33.3% 66.6%,#FFB27A 66.6%)}
+/* hyrox: banda negra */
+.bib.s-hyrox .bib-band{background:#0A0908;color:#F4F1EC}
+.bib.s-hyrox .bib-logo svg{fill:var(--org)}
+.bib.s-hyrox .p1,.bib.s-hyrox .p2{background:#F4F1EC}
+
+/* ciclismo: placa de cuadro con ranuras para precintos */
+.bib.t-placa{max-width:470px;aspect-ratio:1.5;border-radius:22px}
+.bib.t-placa .pin{display:none}
+.bib.t-placa::before,.bib.t-placa::after{content:"";position:absolute;z-index:2;top:58px;width:26px;height:9px;border-radius:5px;background:#0A0908;box-shadow:inset 0 1px 2px rgba(255,255,255,.25)}
+.bib.t-placa::before{left:22px}.bib.t-placa::after{right:22px}
+.bib.t-placa .bib-band{border-radius:22px 22px 0 0}
+.bib.t-placa .bib-kind{display:block;margin-top:16px}
+.bib.t-placa .bib-num{margin-top:0;font-size:clamp(120px,15vw,186px)}
+.bib.t-placa .bib-sports,.bib.t-placa .bib-tear-t{display:none}
+.bib.t-placa .bib-tear{border-top:0;background:none;justify-content:center;padding:0 0 18px}
+.bib.t-placa .bib-code{width:150px;height:18px;opacity:.8}
+
+/* gym: pase vertical con ranura para la cinta */
+.bib.t-pase{max-width:300px;aspect-ratio:.64;border-radius:20px}
+.bib.t-pase .pin{display:none}
+.bib.t-pase::before{content:"";position:absolute;z-index:2;top:12px;left:50%;width:54px;height:10px;margin-left:-27px;border-radius:6px;background:#0A0908;box-shadow:inset 0 1px 2px rgba(255,255,255,.25)}
+.bib.t-pase .bib-band{padding:34px 22px 14px;border-radius:20px 20px 0 0}
+.bib.t-pase .bib-kind{display:block;margin-top:22px}
+.bib.t-pase .bib-num{margin-top:2px;font-size:96px}
+.bib.t-pase .bib-name{white-space:normal;font-size:22px;line-height:1.1;margin-top:10px}
+.bib.t-pase .bib-tear{flex-direction:column;align-items:stretch;gap:10px;padding:14px 20px 18px}
+.bib.t-pase .bib-tear-t{align-items:center;text-align:center}
+.bib.t-pase .bib-code{width:100%;height:34px}
+@media(prefers-reduced-motion:reduce){.bib.swap{animation:none}}
+
+/* ===== v11.4: plata para todos, negro metálico para la edición Origen ===== */
+.bib{color:#0A0908;background:
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E"),
+  linear-gradient(135deg,#FDFDFD 0%,#E9EBEE 26%,#C6CBD1 50%,#F4F5F7 68%,#BCC2C9 100%)}
+.bib-band{background:#0A0908;color:#F4F1EC}
+.bib-logo svg{fill:var(--org)}
+.bib .p1,.bib .p2{background:#E9EBEE;box-shadow:0 0 0 3px rgba(255,255,255,.12),inset 0 -1px 2px rgba(0,0,0,.3)}
+.bib .p3,.bib .p4{background:#0A0908;box-shadow:0 0 0 3px #B5BBC3,inset 0 1px 2px rgba(255,255,255,.3)}
+.bib-sports,.bib-tear,.bib-kind{color:#4B5058}
+.bib-kind{display:none}
+.bib-tear{background:rgba(255,255,255,.34);border-top-color:#9AA0A8}
+.bib-glare{background:radial-gradient(circle at var(--gx,50%) var(--gy,0%),rgba(255,255,255,.95),rgba(255,255,255,0) 40%);mix-blend-mode:overlay}
+.bib.s-trail .bib-band{background:#0A0908 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='60' viewBox='0 0 160 60'%3E%3Cg fill='none' stroke='%23FF6A1A' stroke-opacity='.4'%3E%3Cpath d='M-10 50c30-30 60-30 90-10s60 20 90-10'/%3E%3Cpath d='M-10 38c30-26 60-26 90-8s60 16 90-12'/%3E%3Cpath d='M-10 26c30-22 60-22 90-6s60 12 90-14'/%3E%3Cpath d='M-10 14c30-18 60-18 90-4s60 8 90-16'/%3E%3C/g%3E%3C/svg%3E") center/160px 60px}
+.bib.s-triatlon .bib-band{background:linear-gradient(90deg,#FF6A1A 0 33.3%,#FF8A3D 33.3% 66.6%,#FFB27A 66.6%) bottom/100% 5px no-repeat,#0A0908}
+.bib.s-hyrox .bib-band{background:var(--org);color:#0A0908}
+.bib.s-hyrox .bib-logo svg{fill:#0A0908}
+.bib.s-hyrox .p1,.bib.s-hyrox .p2{background:#0A0908;box-shadow:0 0 0 3px rgba(10,9,8,.18)}
+.bib.t-placa .bib-kind,.bib.t-pase .bib-kind{display:block}
+.bib.t-placa::before,.bib.t-placa::after,.bib.t-pase::before{background:#0A0908}
+
+/* Edición Origen (primeros 100): negro con número cromado */
+.bib.is-fund{color:#F4F1EC;box-shadow:0 46px 90px rgba(0,0,0,.75),0 0 0 1px rgba(255,255,255,.09),inset 0 1px 0 rgba(255,255,255,.08);background:
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.07'/%3E%3C/svg%3E"),
+  radial-gradient(120% 90% at 20% 0%,#2B2723,#0E0C0A 62%)}
+.bib.is-fund .bib-band{background:transparent;color:#C9CDD3;border-bottom:1px solid #2A241F}
+.bib.is-fund .bib-num{background:linear-gradient(100deg,#8E949B 0%,#F4F5F7 26%,#9AA0A7 46%,#FFFFFF 60%,#7D838A 80%,#D9DCE0 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.bib.is-fund.stamp .bib-num{animation:none}
+.bib.is-fund .bib-name{color:#F4F1EC}
+.bib.is-fund .bib-kind{display:block;color:var(--org)}
+.bib.is-fund .bib-sports,.bib.is-fund .bib-tear{color:#8D857C}
+.bib.is-fund .bib-tear{background:rgba(0,0,0,.35);border-top-color:#3A322B}
+.bib.is-fund .bib-code svg{fill:#C9CDD3}
+.bib.is-fund .pin,.bib.is-fund .p1,.bib.is-fund .p2,.bib.is-fund .p3,.bib.is-fund .p4{background:#C9CDD3;box-shadow:0 0 0 3px #2A241F,inset 0 -1px 2px rgba(0,0,0,.4)}
+.bib.is-fund.t-placa::before,.bib.is-fund.t-placa::after,.bib.is-fund.t-pase::before{background:#000;box-shadow:inset 0 0 0 1px #3A322B}
+.bib.is-fund.s-trail .bib-band{background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='60' viewBox='0 0 160 60'%3E%3Cg fill='none' stroke='%23FF6A1A' stroke-opacity='.3'%3E%3Cpath d='M-10 50c30-30 60-30 90-10s60 20 90-10'/%3E%3Cpath d='M-10 38c30-26 60-26 90-8s60 16 90-12'/%3E%3Cpath d='M-10 26c30-22 60-22 90-6s60 12 90-14'/%3E%3Cpath d='M-10 14c30-18 60-18 90-4s60 8 90-16'/%3E%3C/g%3E%3C/svg%3E") center/160px 60px}
+.bib.is-fund.s-triatlon .bib-band{background:linear-gradient(90deg,#FF6A1A 0 33.3%,#FF8A3D 33.3% 66.6%,#FFB27A 66.6%) bottom/100% 3px no-repeat}
+.bib.is-fund.s-hyrox .bib-band{background:transparent;color:var(--org)}
+.bib.is-fund.s-hyrox .bib-logo svg{fill:var(--org)}
+.bib.is-fund .bib-glare{mix-blend-mode:soft-light}
+.bib.is-fund.t-dorsal .bib-num{margin-top:2px}
+.bib.is-fund.t-dorsal .bib-kind{margin-top:12px}
+.bib.is-fund.t-placa .bib-tear{background:none}
+.bib.is-fund{box-shadow:0 46px 90px rgba(0,0,0,.75),0 0 90px rgba(255,106,26,.16),0 0 0 1px rgba(201,205,211,.22),inset 0 1px 0 rgba(255,255,255,.1)}
+
+/* ===== v13: compartir dorsal ===== */
+.bib-share{display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 22px;border:0;border-radius:999px;background:var(--org);color:#0A0908;font:600 14px Inter,sans-serif;cursor:pointer;transition:transform .2s,background .2s}
+.bib-share:hover{background:#ff7d36;transform:translateY(-2px)}
+.bib-share:disabled{opacity:.7;cursor:default;transform:none}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="side">
+    <a class="logo" href="/" aria-label="SINCHI inicio">
+      <svg width="28" height="17" viewBox="0 0 34 20" aria-hidden="true"><path d="M2 18 L12 2 H18 L8 18 Z"/><path d="M14 18 L24 2 H30 L20 18 Z"/></svg>
+      <span>SINCHI</span>
+    </a>
+    <div class="side-copy">
+      <p class="kicker">Club SINCHI · Próximamente</p>
+      <h1>Únete al<br><span class="grad">equipo.</span></h1>
+      <p class="lead">Crea tu cuenta para separar tu gel deportivo, seguir tus pedidos y contarle al mundo cómo te fue en tu carrera.</p>
+    </div>
+    <div class="visual"><img src="/assets/hero_std.webp?v=6" alt="Envases SINCHI: doypack de 100 g y sachet de 60 g"></div>
+    <div class="perks">
+      <div><b>Acceso anticipado</b><span>Entérate primero del lanzamiento.</span></div>
+      <div><b>Tus pedidos</b><span>Todo en un solo lugar.</span></div>
+      <div><b>Tu reseña</b><span>Cuenta tu experiencia.</span></div>
+    </div>
+  </aside>
+  <main class="main">
+    <div class="card">
+      <div class="tabs" id="tabs" data-on="reg" role="tablist">
+        <span class="pill"></span>
+        <button type="button" role="tab" aria-selected="true" data-tab="reg">Crear cuenta</button>
+        <button type="button" role="tab" aria-selected="false" data-tab="login">Iniciar sesión</button>
+      </div>
+
+      <div class="loading" id="loading"><span></span></div>
+
+      <!-- CREAR CUENTA -->
+      <section class="view" id="v-reg">
+        <h2>Crea tu cuenta</h2>
+        <p class="sub">Toma menos de un minuto.</p>
+        <div class="gwrap" hidden><div class="gslot"></div><div class="or">o con tu correo</div></div>
+        <form id="f-reg" novalidate>
+          <div class="field"><input id="r-nombre" placeholder=" " autocomplete="name" maxlength="120"><label for="r-nombre">Nombre y apellido</label></div>
+          <div class="field"><input id="r-mail" type="email" placeholder=" " autocomplete="email" maxlength="254"><label for="r-mail">Correo</label></div>
+          <div class="field phone"><span class="cc">+51</span><input id="r-cel" type="tel" inputmode="numeric" maxlength="11" placeholder=" " autocomplete="tel-national"><label for="r-cel">Celular (WhatsApp)</label></div>
+          <div class="field"><input id="r-pass" type="password" placeholder=" " autocomplete="new-password"><label for="r-pass">Contraseña</label><button type="button" class="eye" data-eye="r-pass">Mostrar</button></div>
+          <div class="meter" id="meter"><span></span><span></span><span></span><span></span></div>
+          <p class="meter-txt" id="meterTxt">Mínimo 8 caracteres.</p>
+          <div class="sport">
+            <p>¿Qué practicas? <em>(opcional)</em></p>
+            <div class="chips" id="r-chips"></div>
+          </div>
+          <input class="hp" id="r-web" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <label class="check"><input type="checkbox" id="r-terms"><span>Acepto los <a href="/terminos.html" target="_blank">Términos y condiciones</a> y la <a href="/privacidad.html" target="_blank">Política de privacidad</a>.</span></label>
+          <label class="check"><input type="checkbox" id="r-news"><span>Quiero recibir novedades y ofertas de SINCHI.</span></label>
+          <p class="msg" id="regMsg" role="alert"></p>
+          <button class="go" type="submit">Crear mi cuenta</button>
+        </form>
+      </section>
+
+      <!-- INICIAR SESIÓN -->
+      <section class="view" id="v-login">
+        <h2>Hola de nuevo</h2>
+        <p class="sub">Entra para ver tus separaciones y tus datos.</p>
+        <div class="gwrap" hidden><div class="gslot"></div><div class="or">o con tu correo</div></div>
+        <form id="f-login" novalidate>
+          <div class="field"><input id="l-mail" type="email" placeholder=" " autocomplete="email"><label for="l-mail">Correo</label></div>
+          <div class="field"><input id="l-pass" type="password" placeholder=" " autocomplete="current-password"><label for="l-pass">Contraseña</label><button type="button" class="eye" data-eye="l-pass">Mostrar</button></div>
+          <div class="row">
+            <label class="check"><input type="checkbox" id="l-keep" checked><span>Mantener sesión</span></label>
+            <button type="button" class="link" data-go="forgot">¿Olvidaste tu contraseña?</button>
+          </div>
+          <p class="msg" id="loginMsg" role="alert"></p>
+          <button class="go" type="submit">Entrar</button>
+        </form>
+      </section>
+
+      <!-- RECUPERAR -->
+      <section class="view" id="v-forgot">
+        <h2>Recupera tu acceso</h2>
+        <p class="sub">Te enviaremos un enlace para crear una nueva contraseña.</p>
+        <form id="f-forgot" novalidate>
+          <div class="field"><input id="f-mail" type="email" placeholder=" " autocomplete="email"><label for="f-mail">Correo</label></div>
+          <p class="msg" id="forgotMsg" role="alert"></p>
+          <button class="go" type="submit">Enviar enlace</button>
+          <button type="button" class="link center" data-tab="login">Volver a iniciar sesión</button>
+        </form>
+      </section>
+
+      <!-- NUEVA CONTRASEÑA -->
+      <section class="view" id="v-nueva">
+        <h2>Crea tu nueva contraseña</h2>
+        <p class="sub">Elige una que no uses en otras páginas.</p>
+        <form id="f-nueva" novalidate>
+          <div class="field"><input id="n-pass" type="password" placeholder=" " autocomplete="new-password"><label for="n-pass">Nueva contraseña</label><button type="button" class="eye" data-eye="n-pass">Mostrar</button></div>
+          <p class="msg" id="nuevaMsg" role="alert"></p>
+          <button class="go" type="submit">Guardar y entrar</button>
+        </form>
+      </section>
+
+      <!-- LISTO -->
+      <section class="view" id="v-done">
+        <div class="done">
+          <div class="ring"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h2 id="doneTitle">¡Bienvenido al equipo!</h2>
+          <p class="sub" id="doneText"></p>
+          <button type="button" class="ghost" id="doneBtn">Ir a Mi SINCHI</button>
+        </div>
+      </section>
+
+      <!-- MI SINCHI -->
+      <section class="view" id="v-mi">
+        <header class="mi-top">
+          <a class="mi-logo" href="/" aria-label="SINCHI inicio"><svg width="30" height="18" viewBox="0 0 34 20" aria-hidden="true"><path d="M2 18 L12 2 H18 L8 18 Z"/><path d="M14 18 L24 2 H30 L20 18 Z"/></svg><span>SINCHI</span></a>
+          <nav class="mi-nav" aria-label="Mi SINCHI">
+            <a href="/">Inicio</a>
+            <a href="/#separar">Separar</a>
+            <a id="miAdmin" href="/api/admin/" hidden>Mi panel</a>
+            <button type="button" id="salir">Cerrar sesión</button>
+          </nav>
+        </header>
+
+        <div class="mi-hero">
+          <p class="mi-bgword" aria-hidden="true">SINCHI</p>
+          <div class="mi-hello">
+            <h1 id="miHola">Hola.</h1>
+            <p class="mi-desde" id="miDesde"></p>
+            <div class="mi-stats" id="miStats"></div>
+            <div class="notice" id="miVerif" hidden>
+              <p>Confirma tu correo <b id="miMail"></b> para activar tu cuenta. Revisa también la carpeta de spam.</p>
+              <button type="button" class="link" id="reenviar">Reenviar correo</button>
+            </div>
+          </div>
+          <div class="bib-wrap" id="bibWrap">
+            <article class="bib" id="bib" aria-label="Tu dorsal del Club SINCHI">
+              <i class="pin p1"></i><i class="pin p2"></i><i class="pin p3"></i><i class="pin p4"></i>
+              <div class="bib-band"><span class="bib-logo"><svg width="22" height="13" viewBox="0 0 34 20" aria-hidden="true"><path d="M2 18 L12 2 H18 L8 18 Z"/><path d="M14 18 L24 2 H30 L20 18 Z"/></svg>SINCHI</span><span id="bibTag">Club 2026</span></div>
+              <p class="bib-kind" id="bibKind"></p>
+              <p class="bib-num" id="bibNum">----</p>
+              <p class="bib-name" id="bibName"></p>
+              <p class="bib-sports" id="bibSports"></p>
+              <div class="bib-tear">
+                <div class="bib-tear-t"><span>Más fuerte que tus problemas.</span><span id="bibDesde"></span></div>
+                <i class="bib-code" id="bibCode" aria-hidden="true"></i>
+              </div>
+              <i class="bib-glare" aria-hidden="true"></i>
+            </article>
+            <div class="bib-sw" id="bibSw" role="group" aria-label="Ver mi tarjeta como" hidden></div>
+            <button type="button" class="bib-share" id="bibShare"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 8l5-5 5 5"/><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>Compartir mi dorsal</button>
+          </div>
+        </div>
+
+        <ol class="mi-steps" id="miSteps" aria-label="Tu avance en el club"></ol>
+
+        <div class="mi-grid">
+          <section class="blk" aria-labelledby="hSeps">
+            <div class="blk-h"><h2 id="hSeps">Tus separaciones</h2><a class="blk-a" href="/#separar">Separar otro</a></div>
+            <div id="miSeps"></div>
+          </section>
+
+          <section class="blk" aria-labelledby="hDatos">
+            <div class="blk-h"><h2 id="hDatos">Tus datos</h2><button type="button" class="blk-a" id="editar">Editar</button></div>
+            <dl class="datos" id="datosVer"></dl>
+            <form id="f-datos" novalidate hidden>
+              <div class="field"><input id="d-nombre" placeholder=" " autocomplete="name" maxlength="120"><label for="d-nombre">Nombre y apellido</label></div>
+              <div class="field phone"><span class="cc">+51</span><input id="d-cel" type="tel" inputmode="numeric" maxlength="11" placeholder=" " autocomplete="tel-national"><label for="d-cel">Celular (WhatsApp)</label></div>
+              <div class="sport"><p>¿Qué practicas?</p><div class="chips" id="d-chips"></div></div>
+              <label class="check"><input type="checkbox" id="d-news"><span>Quiero recibir novedades y ofertas de SINCHI.</span></label>
+              <p class="msg" id="datosMsg" role="status"></p>
+              <div class="f-actions">
+                <button type="button" class="ghost" id="cancelar">Cancelar</button>
+                <button class="go small save" id="guardar" type="submit" disabled>
+                  <i class="ic ic-spin" aria-hidden="true"></i>
+                  <svg class="ic ic-ok" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+                  <span class="lbl">Guardar cambios</span>
+                </button>
+              </div>
+            </form>
+          </section>
+        </div>
+
+        <section class="invite" aria-labelledby="hInvite">
+          <div class="invite-t">
+            <h2 id="hInvite">Entrena acompañado.</h2>
+            <p>Comparte SINCHI con tu equipo de running, trail o ciclismo y sepárenlo juntos antes del lanzamiento.</p>
+            <div class="invite-b">
+              <a class="go small inline" id="inviteWa" target="_blank" rel="noopener" href="#">Enviar por WhatsApp</a>
+              <button type="button" class="ghost" id="inviteCopy">Copiar enlace</button>
+            </div>
+          </div>
+          <img class="invite-img" src="/assets/hero_std.webp?v=6" width="1240" height="1118" alt="" loading="lazy" decoding="async">
+        </section>
+      </section>
+
+      <p class="foot" id="legal">Al continuar, aceptas la <a href="/privacidad.html">Política de privacidad</a> y los <a href="/terminos.html">Términos de uso</a> de SINCHI.</p>
+      <p class="brandline">SINCHI Energy &nbsp;/&nbsp; Hecho en La Libertad</p>
+    </div>
+  </main>
+</div>
+<div class="toast" id="toast" role="status" hidden></div>
+<script>
+(() => {
+const $ = (s) => document.querySelector(s);
+const API = '/api/cuenta';
+const DEPORTES = ['Running', 'Trail', 'Ciclismo', 'Triatlón', 'Hyrox', 'Gym'];
+const tabs = $('#tabs');
+const views = ['reg', 'login', 'forgot', 'nueva', 'done', 'mi'];
+let yo = null;
+
+const csrf = () => (document.cookie.match(/(?:^|;\s*)csrftoken=([^;]+)/) || [])[1] || '';
+async function post(path, data) {
+  const r = await fetch(API + path, {
+    method: 'POST', credentials: 'same-origin',
+    headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrf() },
+    body: JSON.stringify(data || {}),
+  });
+  let j = {};
+  try { j = await r.json(); } catch (_) {}
+  if (r.status === 403 && !j.error) throw new Error('Tu sesión se actualizó. Recarga la página e inténtalo otra vez.');
+  if (!r.ok || !j.ok) throw new Error(j.error || 'No se pudo completar. Revisa tu conexión e inténtalo otra vez.');
+  return j;
+}
+
+function show(name) {
+  views.forEach((v) => $('#v-' + v).classList.toggle('on', v === name));
+  const t = name === 'reg' ? 'reg' : 'login';
+  tabs.dataset.on = t;
+  tabs.querySelectorAll('button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.tab === t)));
+  tabs.hidden = !['reg', 'login'].includes(name);
+  document.body.classList.toggle('is-mi', name === 'mi');
+  $('#legal').hidden = name === 'mi' || name === 'done';
+  document.querySelectorAll('.msg').forEach((m) => { m.textContent = ''; m.classList.remove('good'); });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+document.querySelectorAll('[data-tab]').forEach((b) => b.addEventListener('click', () => show(b.dataset.tab)));
+document.querySelectorAll('[data-go]').forEach((b) => b.addEventListener('click', () => show(b.dataset.go)));
+
+let toastT;
+function toast(text, bad) {
+  const t = $('#toast'); t.textContent = text; t.classList.toggle('bad', !!bad); t.hidden = false;
+  requestAnimationFrame(() => t.classList.add('in'));
+  clearTimeout(toastT); toastT = setTimeout(() => { t.classList.remove('in'); setTimeout(() => { t.hidden = true; }, 400); }, 5200);
+}
+
+function busy(form, on, label) {
+  const b = form.querySelector('.go');
+  if (!b.dataset.label) b.dataset.label = b.textContent;
+  b.disabled = on; b.textContent = on ? (label || 'Un momento…') : b.dataset.label;
+}
+
+// chips de deporte
+function chips(box, sel) {
+  box.innerHTML = '';
+  DEPORTES.forEach((d) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.textContent = d; b.setAttribute('aria-pressed', String(sel.includes(d)));
+    b.addEventListener('click', () => b.setAttribute('aria-pressed', String(b.getAttribute('aria-pressed') !== 'true')));
+    box.appendChild(b);
+  });
+}
+const elegidos = (box) => [...box.querySelectorAll('button[aria-pressed=true]')].map((b) => b.textContent);
+chips($('#r-chips'), []);
+
+// mostrar/ocultar contraseña
+document.querySelectorAll('[data-eye]').forEach((b) => b.addEventListener('click', () => {
+  const i = document.getElementById(b.dataset.eye);
+  const on = i.type === 'password'; i.type = on ? 'text' : 'password'; b.textContent = on ? 'Ocultar' : 'Mostrar';
+}));
+
+// formato del celular
+const fmtCel = (v) => {
+  let d = String(v || '').replace(/\D/g, '');
+  if (d.length === 11 && d.startsWith('51')) d = d.slice(2);
+  d = d.slice(0, 9);
+  return d.replace(/(\d{3})(\d{0,3})(\d{0,3})/, (m, a, b, c) => [a, b, c].filter(Boolean).join(' '));
+};
+['#r-cel', '#d-cel'].forEach((s) => $(s).addEventListener('input', (e) => { e.target.value = fmtCel(e.target.value); }));
+const celOk = (v) => /^9\d{8}$/.test(String(v).replace(/\D/g, ''));
+const mailOk = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+
+// medidor de contraseña
+const bars = document.querySelectorAll('#meter span');
+const cols = ['#FF5A4A', '#FF8A3D', '#FFB27A', '#7BE495'];
+const words = ['Débil', 'Regular', 'Buena', 'Fuerte'];
+$('#r-pass').addEventListener('input', (e) => {
+  const v = e.target.value; let s = 0;
+  if (v.length >= 8) s++; if (/[A-Z]/.test(v) && /[a-z]/.test(v)) s++; if (/\d/.test(v)) s++; if (/[^A-Za-z0-9]/.test(v) || v.length >= 12) s++;
+  bars.forEach((b, i) => { b.style.background = v && i < s ? cols[s - 1] : '#2a241f'; });
+  $('#meterTxt').textContent = !v || v.length < 8 ? 'Mínimo 8 caracteres.' : 'Seguridad: ' + words[Math.max(0, s - 1)];
+});
+
+// Mi SINCHI
+const fechaLarga = new Intl.DateTimeFormat('es-PE', { month: 'long', year: 'numeric' });
+const fechaCorta = new Intl.DateTimeFormat('es-PE', { day: 'numeric', month: 'short', year: 'numeric' });
+const fechaMes = new Intl.DateTimeFormat('es-PE', { month: 'short', year: 'numeric' });
+const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
+const imgDe = (p) => (/sachet/i.test(p) ? '/assets/f60.webp?v=6' : '/assets/f100.webp?v=6');
+const nombreCompleto = (u) => [u.nombre, u.apellido].filter(Boolean).join(' ');
+
+function codigoBarras(n) {
+  let seed = (Number(n) || 7) * 7919 + 104729, x = 0, r = '';
+  for (let i = 0; i < 44; i++) {
+    seed = (seed * 9301 + 49297) % 233280;
+    const w = 1 + (seed % 3);
+    if (i % 2 === 0) r += '<rect x="' + x + '" width="' + w + '" height="30"/>';
+    x += w + (i % 2 ? 1 : 0);
+  }
+  return '<svg viewBox="0 0 ' + x + ' 30" preserveAspectRatio="none">' + r + '</svg>';
+}
+
+function pintarHola(nombre, animar) {
+  const h = $('#miHola'); const txt = 'Hola, ' + (nombre || 'deportista') + '.';
+  h.setAttribute('aria-label', txt); h.innerHTML = '';
+  txt.split(' ').forEach((w, i) => {
+    const o = el('span', 'w'); const n = el('span', animar ? 'in' : '', w);
+    n.style.setProperty('--d', i); n.setAttribute('aria-hidden', 'true');
+    o.appendChild(n); h.append(o, ' ');
+  });
+}
+
+function pintarStats(u) {
+  const unidades = u.separaciones.reduce((a, s) => a + (s.cantidad || 0), 0);
+  const dias = Math.max(1, Math.ceil((Date.now() - new Date(u.desde)) / 864e5));
+  const box = $('#miStats'); box.innerHTML = '';
+  [[unidades, unidades === 1 ? 'Unidad separada' : 'Unidades separadas'], [(u.deportes || []).length, 'Deportes'], [dias, dias === 1 ? 'Día en el club' : 'Días en el club']]
+    .forEach(([n, t]) => { const d = el('div'); d.append(el('b', '', String(n)), el('span', '', t)); box.appendChild(d); });
+}
+
+// cada deporte tiene su propia pieza: dorsal, placa de bicicleta o pase de gimnasio
+const PIEZA = { Running: 'dorsal', Trail: 'dorsal', 'Triatlón': 'dorsal', Hyrox: 'dorsal', Ciclismo: 'placa', Gym: 'pase' };
+const FUNDADORES = 100; // los primeros 100 miembros llevan la edición negra Origen
+const NOMBRE_PIEZA = { dorsal: 'Dorsal', placa: 'Placa', pase: 'Pase' };
+const slug = (t) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+function deporteVista(u) {
+  const ds = u.deportes || [];
+  let g = ''; try { g = localStorage.getItem('sinchi_deporte') || ''; } catch (_) {}
+  return ds.includes(g) ? g : ds[0] || '';
+}
+function pintarDorsal(u) {
+  const dep = deporteVista(u);
+  const tipo = PIEZA[dep] || 'dorsal';
+  const fund = !!u.numero && u.numero <= FUNDADORES;
+  bib.className = 'bib t-' + tipo + (dep ? ' s-' + slug(dep) : '') + (fund ? ' is-fund' : '');
+  bib.setAttribute('aria-label', 'Tu ' + NOMBRE_PIEZA[tipo].toLowerCase() + ' del Club SINCHI');
+  $('#bibTag').textContent = dep ? dep + ' 2026' : 'Club 2026';
+  $('#bibKind').textContent = fund
+    ? (tipo === 'pase' ? 'Pase Origen' : tipo === 'placa' ? 'Placa Origen' : 'Miembro Origen')
+    : (tipo === 'pase' ? 'Pase de miembro' : tipo === 'placa' ? 'Placa de bicicleta' : '');
+  const sw = $('#bibSw'); sw.innerHTML = '';
+  const ds = u.deportes || [];
+  sw.hidden = ds.length < 2;
+  ds.forEach((d) => {
+    const b = el('button', '', d); b.type = 'button'; b.setAttribute('aria-pressed', String(d === dep));
+    b.addEventListener('click', () => { try { localStorage.setItem('sinchi_deporte', d); } catch (_) {} pintarDorsal(yo); });
+    sw.appendChild(b);
+  });
+  $('#bibNum').textContent = u.numero ? String(u.numero).padStart(4, '0') : '----';
+  $('#bibCode').innerHTML = codigoBarras(u.numero);
+  $('#bibName').textContent = nombreCompleto(u) || 'Deportista SINCHI';
+  $('#bibSports').textContent = (u.deportes || []).length ? u.deportes.join('  /  ') : 'Elige tus deportes en Tus datos';
+  bib.classList.remove('swap'); void bib.offsetWidth; bib.classList.add('swap');
+  $('#bibDesde').textContent = 'Desde ' + fechaMes.format(new Date(u.desde));
+}
+
+function pintarPasos(u) {
+  const pasos = [
+    ['Cuenta creada', 'Ya eres parte del club.', true],
+    ['Correo confirmado', u.verificado ? 'Tu cuenta está activa.' : 'Abre el correo que te enviamos.', !!u.verificado],
+    ['Primera separación', u.separaciones.length ? 'Tu SINCHI ya está separado.' : 'Separa el tuyo, sin pago.', u.separaciones.length > 0],
+    ['Lanzamiento en Trujillo', 'Te avisamos antes que a nadie.', false],
+  ];
+  const actual = pasos.findIndex((p) => !p[2]);
+  const ol = $('#miSteps'); ol.innerHTML = '';
+  pasos.forEach(([t, d, ok], i) => {
+    const li = el('li', ok ? 'is-done' : i === actual ? 'is-now' : '');
+    li.style.setProperty('--i', i);
+    li.append(el('b', '', t), el('span', '', d));
+    ol.appendChild(li);
+  });
+}
+
+function pintarSeps(u) {
+  const box = $('#miSeps'); box.innerHTML = '';
+  if (!u.separaciones.length) {
+    const e = el('div', 'empty');
+    e.append(el('p', '', 'Aún no separas tu SINCHI. Es gratis y te avisamos cuando esté listo.'));
+    const a = el('a', 'go small inline', 'Separar el mío'); a.href = '/#separar';
+    e.appendChild(a); box.appendChild(e); return;
+  }
+  u.separaciones.forEach((s) => {
+    const r = el('div', 'tk');
+    const im = el('img'); im.src = imgDe(s.producto); im.alt = ''; im.loading = 'lazy';
+    const a = el('div');
+    a.append(el('b', '', s.producto), el('span', '', 'Separado el ' + fechaCorta.format(new Date(s.fecha))));
+    a.appendChild(el('em', s.atendido ? 'st ok' : 'st', s.atendido ? 'Atendida' : 'Separada'));
+    r.append(im, a, el('strong', 'qty', '×' + s.cantidad));
+    box.appendChild(r);
+  });
+}
+
+function pintarDatos(u) {
+  const dl = $('#datosVer'); dl.innerHTML = '';
+  [
+    ['Nombre', nombreCompleto(u) || 'Sin nombre'],
+    ['Celular', u.celular ? '+51 ' + fmtCel(u.celular) : 'Sin celular'],
+    ['Correo', u.email || ''],
+    ['Deportes', (u.deportes || []).length ? u.deportes.join(', ') : 'Sin elegir'],
+    ['Novedades', u.novedades ? 'Recibes novedades y ofertas' : 'No recibes novedades'],
+  ].forEach(([k, v]) => { dl.append(el('dt', '', k), el('dd', '', v)); });
+}
+
+function pintarMi(u) {
+  yo = u;
+  pintarHola(u.nombre, true);
+  $('#miDesde').textContent = 'Eres miembro del Club SINCHI desde ' + fechaLarga.format(new Date(u.desde)) + '.'
+    + (u.numero && u.numero <= FUNDADORES ? ' Y uno de los primeros 100 miembros Origen.' : '');
+  $('#miVerif').hidden = !!u.verificado || !u.email;
+  $('#miMail').textContent = u.email;
+  $('#miAdmin').hidden = !u.admin;
+  pintarDorsal(u); pintarStats(u); pintarPasos(u); pintarSeps(u); pintarDatos(u);
+  editar(false);
+  show('mi');
+}
+
+// editar datos
+const fDatos = $('#f-datos');
+const btnSave = $('#guardar');
+let foto = '';
+const estadoForm = () => JSON.stringify([$('#d-nombre').value.trim(), $('#d-cel').value.replace(/\D/g, ''), elegidos($('#d-chips')), $('#d-news').checked]);
+const revisar = () => { btnSave.disabled = estadoForm() === foto || btnSave.classList.contains('is-done'); };
+function editar(on) {
+  fDatos.hidden = !on; $('#datosVer').hidden = on; $('#editar').hidden = on;
+  $('#datosMsg').textContent = '';
+  if (on && yo) {
+    $('#d-nombre').value = nombreCompleto(yo);
+    $('#d-cel').value = fmtCel(yo.celular);
+    $('#d-news').checked = !!yo.novedades;
+    chips($('#d-chips'), yo.deportes || []);
+    foto = estadoForm(); revisar();
+    $('#d-nombre').focus();
+  }
+}
+$('#editar').addEventListener('click', () => editar(true));
+$('#cancelar').addEventListener('click', () => editar(false));
+fDatos.addEventListener('input', revisar);
+fDatos.addEventListener('change', revisar);
+$('#d-chips').addEventListener('click', () => setTimeout(revisar));
+
+// dorsal: se inclina con el puntero
+const bibWrap = $('#bibWrap'), bib = $('#bib');
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  bibWrap.addEventListener('pointermove', (e) => {
+    const r = bibWrap.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+    bib.style.transform = 'rotateY(' + (x * 14).toFixed(1) + 'deg) rotateX(' + (-y * 10).toFixed(1) + 'deg)';
+    bib.style.setProperty('--gx', ((x + 0.5) * 100).toFixed(0) + '%');
+    bib.style.setProperty('--gy', ((y + 0.5) * 100).toFixed(0) + '%');
+  });
+  bibWrap.addEventListener('pointerleave', () => { bib.style.transform = ''; bib.style.removeProperty('--gx'); bib.style.removeProperty('--gy'); });
+}
+
+// invitar
+const LINK = 'https://sinchienergy.com/?utm_source=invita';
+$('#inviteWa').href = 'https://wa.me/?text=' + encodeURIComponent('Ya estoy en el Club SINCHI, el gel deportivo hecho en Trujillo. Separa el tuyo aquí: ' + LINK);
+$('#inviteCopy').addEventListener('click', async (e) => {
+  const b = e.currentTarget;
+  try { await navigator.clipboard.writeText(LINK); b.textContent = 'Enlace copiado'; setTimeout(() => { b.textContent = 'Copiar enlace'; }, 2200); }
+  catch (_) { toast('Copia este enlace: ' + LINK); }
+});
+
+// registro
+$('#f-reg').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const m = $('#regMsg'); m.textContent = '';
+  const d = {
+    nombre: $('#r-nombre').value.trim(), email: $('#r-mail').value.trim(), celular: $('#r-cel').value,
+    password: $('#r-pass').value, deportes: elegidos($('#r-chips')), terminos: $('#r-terms').checked,
+    novedades: $('#r-news').checked, web: $('#r-web').value,
+  };
+  if (d.nombre.length < 3) return (m.textContent = 'Escribe tu nombre y apellido.');
+  if (!mailOk(d.email)) return (m.textContent = 'Revisa tu correo.');
+  if (!celOk(d.celular)) return (m.textContent = 'Escribe un celular válido de 9 dígitos.');
+  if (d.password.length < 8) return (m.textContent = 'La contraseña debe tener al menos 8 caracteres.');
+  if (!d.terminos) return (m.textContent = 'Debes aceptar los términos y la política de privacidad.');
+  busy(e.target, true, 'Creando tu cuenta…');
+  try {
+    const j = await post('/registro', d);
+    yo = j.usuario;
+    try { localStorage.setItem('sinchi_cuenta', '1'); } catch (_) {}
+    $('#doneBtn').textContent = 'Ir a Mi SINCHI';
+    $('#doneTitle').textContent = '¡Bienvenido al equipo, ' + (yo.nombre || '') + '!';
+    $('#doneText').innerHTML = j.correo_enviado
+      ? 'Te enviamos un correo a <b></b>. Ábrelo y confirma tu cuenta.'
+      : 'Tu cuenta ya está creada. No pudimos enviar el correo de confirmación ahora: podrás reenviarlo desde Mi SINCHI.';
+    const bb = $('#doneText b'); if (bb) bb.textContent = yo.email;
+    show('done');
+    e.target.reset(); chips($('#r-chips'), []);
+  } catch (x) { m.textContent = x.message; }
+  busy(e.target, false);
+});
+$('#doneBtn').addEventListener('click', () => { if (yo) pintarMi(yo); else show('login'); });
+
+// iniciar sesión
+$('#f-login').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const m = $('#loginMsg'); m.textContent = '';
+  const email = $('#l-mail').value.trim(), password = $('#l-pass').value;
+  if (!mailOk(email) || !password) return (m.textContent = 'Escribe tu correo y tu contraseña.');
+  busy(e.target, true, 'Entrando…');
+  try {
+    const j = await post('/entrar', { email, password, recordar: $('#l-keep').checked });
+    try { localStorage.setItem('sinchi_cuenta', '1'); } catch (_) {}
+    e.target.reset(); pintarMi(j.usuario); toast('Qué bueno verte, ' + (j.usuario.nombre || '') + '.');
+  } catch (x) { m.textContent = x.message; }
+  busy(e.target, false);
+});
+
+// recuperar
+$('#f-forgot').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const m = $('#forgotMsg'); const v = $('#f-mail').value.trim();
+  if (!mailOk(v)) return (m.textContent = 'Revisa tu correo.');
+  busy(e.target, true, 'Enviando…');
+  try {
+    await post('/recuperar', { email: v });
+    $('#doneTitle').textContent = 'Revisa tu correo';
+    $('#doneText').innerHTML = 'Si <b></b> tiene una cuenta SINCHI, te llegará un enlace para crear una nueva contraseña. Revisa también la carpeta de spam.';
+    $('#doneText b').textContent = v;
+    $('#doneBtn').textContent = 'Volver a iniciar sesión';
+    yo = null; show('done');
+  } catch (x) { m.textContent = x.message; }
+  busy(e.target, false);
+});
+
+// nueva contraseña desde el enlace del correo
+const q = new URLSearchParams(location.search);
+$('#f-nueva').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const m = $('#nuevaMsg'); const p = $('#n-pass').value;
+  if (p.length < 8) return (m.textContent = 'La contraseña debe tener al menos 8 caracteres.');
+  busy(e.target, true, 'Guardando…');
+  try {
+    const j = await post('/nueva-clave', { u: q.get('u'), t: q.get('t'), password: p });
+    history.replaceState(null, '', '/cuenta.html');
+    pintarMi(j.usuario); toast('Listo. Tu nueva contraseña ya está activa.');
+  } catch (x) { m.textContent = x.message; }
+  busy(e.target, false);
+});
+
+// compartir: imagen vertical para historias (1080x1920)
+function rr(ctx, x, y, w, h, r) { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
+function barras(ctx, n, x, y, w, h, color) {
+  let seed = (Number(n) || 7) * 7919 + 104729, cx = 0; const bs = [];
+  for (let i = 0; i < 44; i++) { seed = (seed * 9301 + 49297) % 233280; const bw = 1 + (seed % 3); if (i % 2 === 0) bs.push([cx, bw]); cx += bw + (i % 2 ? 1 : 0); }
+  const k = w / cx; ctx.fillStyle = color; bs.forEach(([bx, bw]) => ctx.fillRect(x + bx * k, y, bw * k, h));
+}
+function setF(ctx, w, size, cond) { ctx.font = w + (cond ? ' extra-condensed ' : ' ') + size + 'px ' + (cond ? 'Archivo' : 'Archivo'); if ('fontStretch' in ctx) ctx.fontStretch = cond ? 'extra-condensed' : 'normal'; }
+function fit(ctx, txt, w, size, max, cond) { let s = size; setF(ctx, w, s, cond); while (ctx.measureText(txt).width > max && s > 20) { s -= 4; setF(ctx, w, s, cond); } return s; }
+async function imagenDorsal(u) {
+  try { await Promise.all([document.fonts.load('800 200px Archivo'), document.fonts.load('600 40px Inter')]); } catch (_) {}
+  const dep = deporteVista(u), tipo = PIEZA[dep] || 'dorsal', origen = !!u.numero && u.numero <= FUNDADORES;
+  const W = 1080, H = 1920, cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+  const c = cv.getContext('2d');
+  c.fillStyle = '#0A0908'; c.fillRect(0, 0, W, H);
+  let g = c.createRadialGradient(W * .78, 260, 0, W * .78, 260, 900); g.addColorStop(0, 'rgba(255,106,26,.42)'); g.addColorStop(1, 'rgba(255,106,26,0)'); c.fillStyle = g; c.fillRect(0, 0, W, H);
+  g = c.createRadialGradient(80, H - 200, 0, 80, H - 200, 700); g.addColorStop(0, 'rgba(255,106,26,.18)'); g.addColorStop(1, 'rgba(255,106,26,0)'); c.fillStyle = g; c.fillRect(0, 0, W, H);
+  // cabecera
+  c.fillStyle = '#FF6A1A'; [[84, 0], [114, 0]].forEach(([x]) => { c.beginPath(); c.moveTo(x, 160); c.lineTo(x + 22, 124); c.lineTo(x + 36, 124); c.lineTo(x + 14, 160); c.fill(); });
+  c.fillStyle = '#F4F1EC'; setF(c, '800', 42, false); c.textBaseline = 'alphabetic'; c.fillText('S I N C H I', 172, 158);
+  setF(c, '800', 176, true); c.fillStyle = '#F4F1EC'; c.fillText('SOY PARTE', 84, 400); c.fillText('DEL CLUB.', 84, 560);
+  // tarjeta
+  const dims = { dorsal: [880, 760], placa: [920, 613], pase: [620, 960] }[tipo];
+  const cw = dims[0], ch = dims[1], x = (W - cw) / 2, y = 640, r = tipo === 'dorsal' ? 22 : 34;
+  c.save(); c.shadowColor = 'rgba(0,0,0,.6)'; c.shadowBlur = 90; c.shadowOffsetY = 50; rr(c, x, y, cw, ch, r);
+  if (origen) { g = c.createRadialGradient(x + cw * .2, y, 0, x + cw * .2, y, cw * 1.1); g.addColorStop(0, '#2B2723'); g.addColorStop(.62, '#0E0C0A'); g.addColorStop(1, '#0E0C0A'); }
+  else { g = c.createLinearGradient(x, y, x + cw, y + ch); [[0, '#FDFDFD'], [.26, '#E9EBEE'], [.5, '#C6CBD1'], [.68, '#F4F5F7'], [1, '#BCC2C9']].forEach(([o, col]) => g.addColorStop(o, col)); }
+  c.fillStyle = g; c.fill(); c.restore();
+  c.save(); rr(c, x, y, cw, ch, r); c.clip();
+  if (origen) { c.strokeStyle = 'rgba(201,205,211,.25)'; c.lineWidth = 2; rr(c, x + 1, y + 1, cw - 2, ch - 2, r); c.stroke(); }
+  // banda
+  const bh = tipo === 'pase' ? 130 : 96;
+  if (!origen) { c.fillStyle = dep === 'Hyrox' ? '#FF6A1A' : '#0A0908'; c.fillRect(x, y, cw, bh); }
+  else { c.fillStyle = 'rgba(255,255,255,.08)'; c.fillRect(x, y + bh - 2, cw, 2); }
+  if (dep === 'Triatlón') { ['#FF6A1A', '#FF8A3D', '#FFB27A'].forEach((col, i) => { c.fillStyle = col; c.fillRect(x + i * cw / 3, y + bh - 6, cw / 3 + 1, 6); }); }
+  const bandTxt = origen ? '#C9CDD3' : dep === 'Hyrox' ? '#0A0908' : '#F4F1EC';
+  setF(c, '800', 30, false); c.fillStyle = dep === 'Hyrox' && !origen ? '#0A0908' : '#FF6A1A'; c.fillText('//', x + 54, y + bh - 34);
+  c.fillStyle = bandTxt; c.fillText('S I N C H I', x + 100, y + bh - 34);
+  c.font = '600 28px Inter'; c.textAlign = 'right'; c.fillText(dep ? dep + ' 2026' : 'Club 2026', x + cw - 54, y + bh - 36); c.textAlign = 'left';
+  // perforaciones
+  if (tipo === 'dorsal') { c.fillStyle = origen ? '#C9CDD3' : '#0A0908'; [[x + 26, y + 26], [x + cw - 26, y + 26], [x + 26, y + ch - 110], [x + cw - 26, y + ch - 110]].forEach(([px, py], i) => { c.beginPath(); c.arc(px, py, 11, 0, 7); c.fillStyle = i < 2 ? (origen ? '#C9CDD3' : '#E9EBEE') : (origen ? '#C9CDD3' : '#0A0908'); c.fill(); }); }
+  if (tipo === 'placa') { c.fillStyle = '#0A0908'; rr(c, x + 34, y + bh + 26, 48, 16, 8); c.fill(); rr(c, x + cw - 82, y + bh + 26, 48, 16, 8); c.fill(); }
+  if (tipo === 'pase') { c.fillStyle = '#0A0908'; rr(c, x + cw / 2 - 50, y + 22, 100, 18, 9); c.fill(); }
+  // etiqueta
+  c.textAlign = 'center'; const mid = x + cw / 2; let ty = y + bh + 70;
+  const kind = origen ? (tipo === 'pase' ? 'Pase Origen' : tipo === 'placa' ? 'Placa Origen' : 'Miembro Origen') : (tipo === 'pase' ? 'Pase de miembro' : tipo === 'placa' ? 'Placa de bicicleta' : '');
+  if (kind) { c.font = '600 30px Inter'; c.fillStyle = origen ? '#FF6A1A' : '#4B5058'; c.fillText(kind, mid, ty); ty += 20; }
+  // número
+  const num = u.numero ? String(u.numero).padStart(4, '0') : '----';
+  const nh = fit(c, num, '800', tipo === 'pase' ? 250 : tipo === 'placa' ? 300 : 330, cw - 120, true); const ny = ty + nh * .8;
+  if (origen) { g = c.createLinearGradient(mid - cw / 2, 0, mid + cw / 2, 0); [[0, '#8E949B'], [.26, '#F4F5F7'], [.46, '#9AA0A7'], [.6, '#FFFFFF'], [.8, '#7D838A'], [1, '#D9DCE0']].forEach(([o, col]) => g.addColorStop(o, col)); c.fillStyle = g; }
+  else c.fillStyle = '#0A0908';
+  c.fillText(num, mid, ny);
+  const nombre = (nombreCompleto(u) || 'Deportista SINCHI').toUpperCase();
+  fit(c, nombre, '700', 46, cw - 100, false); c.fillStyle = origen ? '#F4F1EC' : '#0A0908'; c.fillText(nombre, mid, ny + 76);
+  c.font = '500 28px Inter'; c.fillStyle = origen ? '#8D857C' : '#4B5058'; c.fillText((u.deportes || []).join('  /  '), mid, ny + 122);
+  // franja inferior
+  const fy = y + ch - (tipo === 'placa' ? 70 : 96);
+  if (tipo !== 'placa') { c.setLineDash([12, 10]); c.strokeStyle = origen ? '#3A322B' : '#9AA0A8'; c.lineWidth = 3; c.beginPath(); c.moveTo(x, fy); c.lineTo(x + cw, fy); c.stroke(); c.setLineDash([]); }
+  c.textAlign = 'left'; c.font = '500 24px Inter'; c.fillStyle = origen ? '#8D857C' : '#4B5058';
+  if (tipo === 'dorsal') { c.fillText('Más fuerte que tus problemas.', x + 44, fy + 44); c.fillText('Desde ' + fechaMes.format(new Date(u.desde)), x + 44, fy + 76); barras(c, u.numero, x + cw - 254, fy + 26, 210, 52, origen ? '#C9CDD3' : '#0A0908'); }
+  else if (tipo === 'pase') { c.textAlign = 'center'; c.fillText('Más fuerte que tus problemas.', mid, fy + 40); barras(c, u.numero, x + 50, fy + 56, cw - 100, 30, origen ? '#C9CDD3' : '#0A0908'); }
+  else barras(c, u.numero, mid - 150, fy + 20, 300, 34, origen ? '#C9CDD3' : '#0A0908');
+  c.restore();
+  // pie
+  c.textAlign = 'left'; c.font = '500 34px Inter'; c.fillStyle = '#B7AEA4';
+  c.fillText('Gel deportivo hecho en Salaverry. Sin cafeína.', 84, H - 250);
+  c.font = '700 44px Inter'; c.fillStyle = '#F4F1EC'; c.fillText('sinchienergy.com', 84, H - 170);
+  c.font = '600 34px Inter'; c.fillStyle = '#FF6A1A'; c.fillText('@sinchienergy', 84, H - 116);
+  return new Promise((ok) => cv.toBlob(ok, 'image/png'));
+}
+$('#bibShare').addEventListener('click', async (e) => {
+  const b = e.currentTarget; if (!yo || b.disabled) return;
+  b.disabled = true; const t = b.textContent; b.textContent = 'Preparando imagen';
+  try {
+    const blob = await imagenDorsal(yo);
+    const nombre = 'sinchi-dorsal-' + (yo.numero ? String(yo.numero).padStart(4, '0') : 'club') + '.png';
+    const file = new File([blob], nombre, { type: 'image/png' });
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      try { await navigator.share({ files: [file], text: 'Ya soy parte del Club SINCHI. sinchienergy.com @sinchienergy' }); } catch (_) {}
+    } else {
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = nombre; document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+      toast('Imagen descargada. Súbela a tu historia y etiqueta a @sinchienergy.');
+    }
+  } catch (_) { toast('No pudimos crear la imagen. Inténtalo otra vez.', true); }
+  b.disabled = false; b.textContent = t;
+});
+
+// guardar datos
+fDatos.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const m = $('#datosMsg'); m.textContent = ''; m.classList.remove('good');
+  const d = { nombre: $('#d-nombre').value.trim(), celular: $('#d-cel').value, deportes: elegidos($('#d-chips')), novedades: $('#d-news').checked };
+  if (d.nombre.length < 3) return (m.textContent = 'Escribe tu nombre y apellido.');
+  if (!celOk(d.celular)) return (m.textContent = 'Escribe un celular válido de 9 dígitos.');
+  const lbl = btnSave.querySelector('.lbl');
+  btnSave.disabled = true; btnSave.classList.add('is-busy'); lbl.textContent = 'Guardando';
+  try {
+    const j = await post('/actualizar', d);
+    yo = Object.assign({}, yo, j.usuario);
+    btnSave.classList.remove('is-busy'); btnSave.classList.add('is-done'); lbl.textContent = 'Guardado';
+    pintarHola(yo.nombre, false);
+    pintarDorsal(yo); pintarStats(yo); pintarDatos(yo);
+    bib.classList.remove('stamp'); void bib.offsetWidth; bib.classList.add('stamp');
+    toast('Tus datos están al día.');
+    setTimeout(() => {
+      editar(false);
+      btnSave.classList.remove('is-done'); lbl.textContent = 'Guardar cambios';
+      const dl = $('#datosVer'); dl.classList.remove('flash'); void dl.offsetWidth; dl.classList.add('flash');
+    }, 1300);
+  } catch (x) {
+    btnSave.classList.remove('is-busy'); lbl.textContent = 'Guardar cambios'; btnSave.disabled = false;
+    m.textContent = x.message;
+  }
+});
+
+$('#reenviar').addEventListener('click', async (e) => {
+  e.target.disabled = true;
+  try { await post('/reenviar'); toast('Te enviamos otro correo de confirmación.'); }
+  catch (x) { toast(x.message, true); }
+  setTimeout(() => { e.target.disabled = false; }, 20000);
+});
+$('#salir').addEventListener('click', async () => {
+  try { await post('/salir'); } catch (_) {}
+  yo = null; show('login'); toast('Cerraste sesión.');
+});
+
+// inicio
+(async () => {
+  let s = { usuario: null, google: '' };
+  try { s = await fetch(API + '/sesion', { credentials: 'same-origin' }).then((r) => r.json()); } catch (_) {}
+  $('#loading').hidden = true;
+  const estado = q.get('estado');
+  if (q.get('accion') === 'clave' && q.get('u') && q.get('t')) { show('nueva'); return; }
+  if (s.usuario) pintarMi(s.usuario);
+  else { let antes = ''; try { antes = localStorage.getItem('sinchi_cuenta') || ''; } catch (_) {} show(q.get('modo') === 'registro' || !antes ? 'reg' : 'login'); }
+  if (estado === 'verificada') toast(s.usuario ? '¡Correo confirmado! Tu cuenta está activa.' : '¡Correo confirmado! Ya puedes iniciar sesión.');
+  if (estado === 'enlace-vencido') toast('El enlace venció. Inicia sesión y pide uno nuevo desde Mi SINCHI.', true);
+  if (estado) history.replaceState(null, '', '/cuenta.html');
+  try { if (s.usuario) localStorage.setItem('sinchi_cuenta', '1'); } catch (_) {}
+})();
+})();
+</script>
+</body>
+</html>
