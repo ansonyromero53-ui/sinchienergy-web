@@ -113,3 +113,9 @@ body.lock .wa-float{display:none}
 .guide b{font-family:Archivo,sans-serif;font-stretch:110%;font-size:20px;line-height:1.25}
 .guide .muted{font-size:14px}
 @media (max-width:560px){.race{grid-template-columns:80px 1fr;gap:14px;padding:18px}.rdate{font-size:20px}}
+/* v18: logos de pago */
+.pay-m img{width:28px;height:28px;border-radius:7px;display:block}
+.pay-m{padding:5px 14px 5px 5px}
+.foot-pay{display:flex;flex-direction:column;gap:8px}
+.foot-pay span{display:inline-flex;align-items:center;gap:10px;font-variant-numeric:tabular-nums}
+.foot-pay img{width:22px;height:22px;border-radius:5px}
