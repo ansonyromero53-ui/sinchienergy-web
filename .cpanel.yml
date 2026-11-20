@@ -2,5 +2,5 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/sinctswg/public_html/
-    - /bin/cp index.html cuenta.html main.js styles.css sw.js manifest.webmanifest privacidad.html terminos.html robots.txt sitemap.xml $DEPLOYPATH
+    - /bin/cp index.html cuenta.html main.js styles.css sw.js manifest.webmanifest privacidad.html terminos.html robots.txt sitemap.xml reclamaciones.html google60a94ae7feefb684.html $DEPLOYPATH
     - /bin/cp -R assets/. ${DEPLOYPATH}assets/

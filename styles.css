@@ -76,3 +76,6 @@
 body.lock .wa-float{display:none}
 @media(max-width:820px){.faq-grid{grid-template-columns:1fr}.faq-head{position:static}.faq{padding:90px 0}.faq details p{padding-right:0}}
 @media(prefers-reduced-motion:reduce){.origen-pill .dot{animation:none}}
+
+/* v14: enlaces legales del pie */
+.foot-bottom a{display:inline;margin:0;font-size:12px;color:#8d857c}.foot-bottom a:hover{color:#fff}
