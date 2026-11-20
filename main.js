@@ -63,7 +63,7 @@ const sel = document.getElementById('prodSel');
     const j = await fetch(API + '/productos').then((r) => r.json());
     // Si en el admin el formato se escribe como "Sachet 60 g · Maracuyá", se agrupa por formato y se elige el sabor
     const grupos = {};
-    j.productos.forEach((p) => {
+    j.productos.filter((p) => !/ULTRA/i.test(p.nombre || '')).forEach((p) => {
       const [f0, sabor] = String(p.formato).split(' · ');
       // "SINCHI CARB RACE" -> "RACE · Sachet 60 g"
       const linea = String(p.nombre || '').replace(/^SINCHI(\s+CARB)?\s*/i, '').trim();
@@ -188,3 +188,16 @@ document.querySelectorAll('.paytile').forEach((b) => b.addEventListener('click',
   if (window.gtag) gtag('event', 'copiar_numero_pago', { metodo: b.querySelector('b').textContent });
   setTimeout(() => { b.classList.remove('ok'); act.textContent = 'Copiar'; }, 1800);
 }));
+
+// ULTRA: avísame (misma lista de acceso anticipado)
+const uf = document.getElementById('ultraForm');
+if (uf) uf.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const v = document.getElementById('ultraMail').value.trim(), msg = document.getElementById('ultraMsg');
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)) { msg.textContent = 'Escribe un correo válido.'; return; }
+  try {
+    await post('/suscribir', { email: v, web: '' });
+    uf.hidden = true; msg.textContent = 'Listo. Serás de los primeros en conocer ULTRA.';
+    if (window.gtag) gtag('event', 'avisame_ultra');
+  } catch (x) { msg.textContent = x.message; }
+});

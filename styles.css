@@ -153,3 +153,17 @@ body.lock .wa-float{display:none}
 .foot .foot-pay{display:flex;flex-direction:column;align-items:flex-start;gap:10px;margin-top:6px}
 .foot .fp-logos{display:flex;gap:10px}
 [hidden]{display:none!important}
+/* v21: lanzamiento solo RACE + ULTRA sorpresa */
+.heroimg-race{width:auto !important;max-width:none !important;height:min(66vh,580px);margin:0 auto;display:block}
+@media (max-width:900px){.heroimg-race{height:min(56vh,440px)}}
+.fmtcard img{grid-row:1 / span 6 !important}
+.fmt-cta{justify-self:start;margin-top:8px}
+.fmtcard.teaser{background:radial-gradient(120% 90% at 20% 50%,rgba(255,106,26,.10),transparent 60%),#0B0907 !important;border-style:dashed !important;border-color:#3a2a1c !important}
+.fmtcard.teaser img{filter:brightness(0) drop-shadow(0 0 1px rgba(255,160,90,.95)) drop-shadow(0 0 26px rgba(255,106,26,.35)) !important}
+.fmtcard.teaser .big{background:linear-gradient(90deg,#FFB27A,#FF6A1A);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:.02em}
+.fmtcard.teaser .kicker{color:#FF6A1A}
+.teaser-form{display:flex;gap:8px;margin-top:6px;flex-wrap:wrap}
+.teaser-form input{flex:1 1 180px;min-width:0;font:inherit;font-size:14px;color:#F4F1EC;background:#14110F;border:1px solid #3a322b;border-radius:999px;padding:12px 16px}
+.teaser-form input:focus{outline:2px solid #FF6A1A;outline-offset:1px;border-color:transparent}
+.teaser-form .btn{padding:12px 20px}
+.teaser-msg{margin:4px 0 0;font-size:13px;color:#b7aea4;min-height:18px}
