@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mi cuenta · SINCHI CARB</title>
-<meta name="description" content="Crea tu cuenta SINCHI o inicia sesión para ver tus separaciones y enterarte primero del lanzamiento.">
+<meta name="description" content="Crea tu cuenta SINCHI CARB o inicia sesión para ver tus separaciones y enterarte primero del lanzamiento.">
 <meta name="robots" content="noindex">
 <link rel="icon" href="/assets/favicon.png">
 <link rel="manifest" href="/manifest.webmanifest">
@@ -449,9 +449,9 @@ body.is-mi .shell{overflow-x:clip}
 <body>
 <div class="shell">
   <aside class="side">
-    <a class="logo" href="/" aria-label="SINCHI inicio">
+    <a class="logo" href="/" aria-label="SINCHI CARB inicio">
       <svg width="28" height="17" viewBox="0 0 34 20" aria-hidden="true"><path d="M2 18 L12 2 H18 L8 18 Z"/><path d="M14 18 L24 2 H30 L20 18 Z"/></svg>
-      <span>SINCHI</span>
+      <span>SINCHI CARB</span>
     </a>
     <div class="side-copy">
       <p class="kicker">Club SINCHI · Próximamente</p>
@@ -493,7 +493,7 @@ body.is-mi .shell{overflow-x:clip}
           </div>
           <input class="hp" id="r-web" tabindex="-1" autocomplete="off" aria-hidden="true">
           <label class="check"><input type="checkbox" id="r-terms"><span>Acepto los <a href="/terminos.html" target="_blank">Términos y condiciones</a> y la <a href="/privacidad.html" target="_blank">Política de privacidad</a>.</span></label>
-          <label class="check"><input type="checkbox" id="r-news"><span>Quiero recibir novedades y ofertas de SINCHI.</span></label>
+          <label class="check"><input type="checkbox" id="r-news"><span>Quiero recibir novedades y ofertas de SINCHI CARB.</span></label>
           <p class="msg" id="regMsg" role="alert"></p>
           <button class="go" type="submit">Crear mi cuenta</button>
         </form>
@@ -552,7 +552,7 @@ body.is-mi .shell{overflow-x:clip}
       <!-- MI SINCHI -->
       <section class="view" id="v-mi">
         <header class="mi-top">
-          <a class="mi-logo" href="/" aria-label="SINCHI inicio"><svg width="30" height="18" viewBox="0 0 34 20" aria-hidden="true"><path d="M2 18 L12 2 H18 L8 18 Z"/><path d="M14 18 L24 2 H30 L20 18 Z"/></svg><span>SINCHI</span></a>
+          <a class="mi-logo" href="/" aria-label="SINCHI CARB inicio"><svg width="30" height="18" viewBox="0 0 34 20" aria-hidden="true"><path d="M2 18 L12 2 H18 L8 18 Z"/><path d="M14 18 L24 2 H30 L20 18 Z"/></svg><span>SINCHI CARB</span></a>
           <nav class="mi-nav" aria-label="Mi SINCHI">
             <a href="/">Inicio</a>
             <a href="/#separar">Separar</a>
@@ -606,7 +606,7 @@ body.is-mi .shell{overflow-x:clip}
               <div class="field"><input id="d-nombre" placeholder=" " autocomplete="name" maxlength="120"><label for="d-nombre">Nombre y apellido</label></div>
               <div class="field phone"><span class="cc">+51</span><input id="d-cel" type="tel" inputmode="numeric" maxlength="11" placeholder=" " autocomplete="tel-national"><label for="d-cel">Celular (WhatsApp)</label></div>
               <div class="sport"><p>¿Qué practicas?</p><div class="chips" id="d-chips"></div></div>
-              <label class="check"><input type="checkbox" id="d-news"><span>Quiero recibir novedades y ofertas de SINCHI.</span></label>
+              <label class="check"><input type="checkbox" id="d-news"><span>Quiero recibir novedades y ofertas de SINCHI CARB.</span></label>
               <p class="msg" id="datosMsg" role="status"></p>
               <div class="f-actions">
                 <button type="button" class="ghost" id="cancelar">Cancelar</button>
@@ -623,7 +623,7 @@ body.is-mi .shell{overflow-x:clip}
         <section class="invite" aria-labelledby="hInvite">
           <div class="invite-t">
             <h2 id="hInvite">Entrena acompañado.</h2>
-            <p>Comparte SINCHI con tu equipo de running, trail o ciclismo y sepárenlo juntos antes del lanzamiento.</p>
+            <p>Comparte SINCHI CARB con tu equipo de running, trail o ciclismo y sepárenlo juntos antes del lanzamiento.</p>
             <div class="invite-b">
               <a class="go small inline" id="inviteWa" target="_blank" rel="noopener" href="#">Enviar por WhatsApp</a>
               <button type="button" class="ghost" id="inviteCopy">Copiar enlace</button>
@@ -633,7 +633,7 @@ body.is-mi .shell{overflow-x:clip}
         </section>
       </section>
 
-      <p class="foot" id="legal">Al continuar, aceptas la <a href="/privacidad.html">Política de privacidad</a> y los <a href="/terminos.html">Términos de uso</a> de SINCHI.</p>
+      <p class="foot" id="legal">Al continuar, aceptas la <a href="/privacidad.html">Política de privacidad</a> y los <a href="/terminos.html">Términos de uso</a> de SINCHI CARB.</p>
       <p class="brandline">SINCHI CARB &nbsp;/&nbsp; Hecho en La Libertad</p>
     </div>
   </main>
@@ -807,7 +807,7 @@ function pintarPasos(u) {
   const pasos = [
     ['Cuenta creada', 'Ya eres parte del club.', true],
     ['Correo confirmado', u.verificado ? 'Tu cuenta está activa.' : 'Abre el correo que te enviamos.', !!u.verificado],
-    ['Primera separación', u.separaciones.length ? 'Tu SINCHI ya está separado.' : 'Separa el tuyo, sin pago.', u.separaciones.length > 0],
+    ['Primera separación', u.separaciones.length ? 'Tu SINCHI CARB ya está separado.' : 'Separa el tuyo, sin pago.', u.separaciones.length > 0],
     ['Lanzamiento en Trujillo', 'Te avisamos antes que a nadie.', false],
   ];
   const actual = pasos.findIndex((p) => !p[2]);
@@ -824,7 +824,7 @@ function pintarSeps(u) {
   const box = $('#miSeps'); box.innerHTML = '';
   if (!u.separaciones.length) {
     const e = el('div', 'empty');
-    e.append(el('p', '', 'Aún no separas tu SINCHI. Es gratis y te avisamos cuando esté listo.'));
+    e.append(el('p', '', 'Aún no separas tu SINCHI CARB. Es gratis y te avisamos cuando esté listo.'));
     const a = el('a', 'go small inline', 'Separar el mío'); a.href = '/#separar';
     e.appendChild(a); box.appendChild(e); return;
   }
@@ -965,7 +965,7 @@ $('#f-forgot').addEventListener('submit', async (e) => {
   try {
     await post('/recuperar', { email: v });
     $('#doneTitle').textContent = 'Revisa tu correo';
-    $('#doneText').innerHTML = 'Si <b></b> tiene una cuenta SINCHI, te llegará un enlace para crear una nueva contraseña. Revisa también la carpeta de spam.';
+    $('#doneText').innerHTML = 'Si <b></b> tiene una cuenta SINCHI CARB, te llegará un enlace para crear una nueva contraseña. Revisa también la carpeta de spam.';
     $('#doneText b').textContent = v;
     $('#doneBtn').textContent = 'Volver a iniciar sesión';
     yo = null; show('done');

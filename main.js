@@ -159,7 +159,7 @@ btns.forEach((b) => b.addEventListener('click', async () => {
     return;
   }
   if (!isIOS) {
-    modal.querySelector('h3').textContent = 'Instala SINCHI';
+    modal.querySelector('h3').textContent = 'Instala SINCHI CARB';
     modal.querySelector('ol').innerHTML = '<li>Abre el menú del navegador (⋮).</li><li>Elige <b>“Instalar app”</b> o <b>“Agregar a pantalla de inicio”</b>.</li>';
   }
   modal.hidden = false;
