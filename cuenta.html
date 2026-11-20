@@ -14,7 +14,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="preload" href="/fonts/archivo.woff2?v=1" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/inter.woff2?v=1" as="font" type="font/woff2" crossorigin>
-<style>@font-face{font-family:'Archivo';font-style:normal;font-display:swap;font-weight:100 900;font-stretch:62% 125%;src:url(/fonts/archivo.woff2?v=1) format('woff2')}@font-face{font-family:'Inter';font-style:normal;font-display:swap;font-weight:100 900;src:url(/fonts/inter.woff2?v=1) format('woff2')}</style>
+<style>@font-face{font-family:'Archivo';font-style:normal;font-display:swap;font-weight:100 900;font-stretch:62% 125%;src:url(/fonts/archivo.woff2?v=1) format('woff2')}@font-face{font-family:'Inter';font-style:normal;font-display:swap;font-weight:100 900;src:url(/fonts/inter.woff2?v=1) format('woff2')}.invite-img.invite-race{width:auto !important;height:340px;max-width:none !important;margin:-40px 30px -40px auto !important;transform:rotate(6deg)}
+@media (max-width:900px){.invite-img.invite-race{height:260px;margin:-20px auto 0 !important}}
+</style>
 <style>
 :root{--ink:#0A0908;--ink2:#12100E;--line:#2A241F;--text:#F4F1EC;--muted:#8d857c;--soft:#b7aea4;--org:#FF6A1A;--org2:#FFB27A}
 *{box-sizing:border-box}
@@ -627,7 +629,7 @@ body.is-mi .shell{overflow-x:clip}
               <button type="button" class="ghost" id="inviteCopy">Copiar enlace</button>
             </div>
           </div>
-          <img class="invite-img" src="/assets/hero_std.webp?v=6" width="1240" height="1118" alt="" loading="lazy" decoding="async">
+          <img class="invite-img invite-race" src="/assets/race-600.webp?v=1" width="600" height="1264" alt="" loading="lazy" decoding="async">
         </section>
       </section>
 
@@ -733,7 +735,7 @@ const fechaLarga = new Intl.DateTimeFormat('es-PE', { month: 'long', year: 'nume
 const fechaCorta = new Intl.DateTimeFormat('es-PE', { day: 'numeric', month: 'short', year: 'numeric' });
 const fechaMes = new Intl.DateTimeFormat('es-PE', { month: 'short', year: 'numeric' });
 const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
-const imgDe = (p) => (/sachet/i.test(p) ? '/assets/race-320.webp?v=1' : '/assets/f100.webp?v=6');
+const imgDe = (p) => (/sachet/i.test(p) ? '/assets/race-320.webp?v=1' : '/assets/ultra-360.webp?v=1');
 const nombreCompleto = (u) => [u.nombre, u.apellido].filter(Boolean).join(' ');
 
 function codigoBarras(n) {
