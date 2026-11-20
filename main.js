@@ -101,7 +101,7 @@ sep.addEventListener('submit', async (e) => {
   try {
     await post('/separar', d);
     sep.reset();
-    sepMsg.textContent = '¡Listo! Ya separaste el tuyo. Te escribiremos cuando esté disponible.'; sepMsg.classList.add('good');
+    sepMsg.textContent = '¡Listo! Ya separaste el tuyo. Te escribiremos por WhatsApp cuando esté disponible y pagas con Yape o Plin.'; sepMsg.classList.add('good');
   } catch (x) { sepMsg.textContent = x.message; sepMsg.classList.add('bad'); }
   btn.disabled = false;
 });
