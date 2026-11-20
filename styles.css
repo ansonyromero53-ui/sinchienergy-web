@@ -119,3 +119,33 @@ body.lock .wa-float{display:none}
 .foot-pay{display:flex;flex-direction:column;gap:8px}
 .foot-pay span{display:inline-flex;align-items:center;gap:10px;font-variant-numeric:tabular-nums}
 .foot-pay img{width:22px;height:22px;border-radius:5px}
+/* v19: compra y medios de pago */
+.buy{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(18px,3vw,40px);margin-top:18px;padding:clamp(22px,3vw,34px);border:1px solid #2A241F;border-radius:26px;background:#0E0C0A}
+.buy-steps{list-style:none;margin:0;padding:0;display:grid;gap:22px}
+.buy-steps li{display:grid;grid-template-columns:36px 1fr;gap:16px;align-items:start}
+.bs-n{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-family:Archivo,sans-serif;font-stretch:118%;font-weight:800;font-size:15px;color:#0A0908;background:#FF6A1A}
+.buy-steps b{display:block;font-family:Archivo,sans-serif;font-stretch:110%;font-size:18px;color:#F4F1EC;margin:6px 0 4px}
+.buy-steps .muted{margin:0;font-size:14px;line-height:1.6}
+.paybox .pay-k{margin:0 0 14px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#8d857c}
+.paytiles{display:grid;gap:10px}
+.paytile{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;width:100%;padding:12px 14px 12px 12px;border:1px solid #2f2822;border-radius:16px;background:#14110F;color:#F4F1EC;font:inherit;text-align:left;cursor:pointer;transition:border-color .2s,background .2s}
+.paytile:hover,.paytile:focus-visible{border-color:#FF6A1A;outline:none}
+.paytile img{border-radius:11px;display:block}
+.pt-txt b{display:block;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#8d857c}
+.pt-txt em{display:block;font-style:normal;font-family:Archivo,sans-serif;font-stretch:108%;font-weight:700;font-size:20px;letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.pt-act{font-size:12px;font-weight:600;color:#FFB27A;padding:7px 12px;border:1px solid #3a322b;border-radius:999px;white-space:nowrap}
+.paytile.ok{border-color:#2fbf71}.paytile.ok .pt-act{color:#2fbf71;border-color:#2fbf71}
+.pay-safe{margin:14px 0 0;font-size:12px;color:#8d857c;line-height:1.55}
+.paybox.mini{margin-top:6px}
+.paybox.mini .pay-k{margin-bottom:10px}
+.paybox.mini .paytiles{grid-template-columns:1fr 1fr}
+.paybox.mini .paytile{padding:9px 10px;gap:10px;grid-template-columns:auto 1fr}
+.paybox.mini .pt-act{display:none}
+.paybox.mini .pt-txt em{font-size:15px}
+.paybox.mini .paytile img{border-radius:8px}
+.foot-pay{display:flex;flex-direction:column;gap:10px}
+.fp-k{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#8d857c}
+.fp-logos{display:flex;gap:10px}
+.fp-logos img{width:34px;height:34px;border-radius:8px}
+@media (max-width:860px){.buy{grid-template-columns:1fr}}
+@media (max-width:420px){.paybox.mini .paytiles{grid-template-columns:1fr}}

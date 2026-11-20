@@ -177,3 +177,13 @@ document.getElementById('year').textContent = new Date().getFullYear();
     document.getElementById('origenPill').classList.remove('is-wait');
   } catch (_) { document.getElementById('origenPill').hidden = true; }
 })();
+// Copiar número de Yape / Plin
+document.querySelectorAll('.paytile').forEach((b) => b.addEventListener('click', async () => {
+  const n = b.dataset.copy, act = b.querySelector('.pt-act');
+  try { await navigator.clipboard.writeText(n); } catch (_) {
+    const t = document.createElement('textarea'); t.value = n; document.body.appendChild(t); t.select(); try { document.execCommand('copy'); } catch (e) {} t.remove();
+  }
+  b.classList.add('ok'); act.textContent = 'Copiado';
+  if (window.gtag) gtag('event', 'copiar_numero_pago', { metodo: b.querySelector('b').textContent });
+  setTimeout(() => { b.classList.remove('ok'); act.textContent = 'Copiar'; }, 1800);
+}));
