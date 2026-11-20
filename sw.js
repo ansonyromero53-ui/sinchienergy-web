@@ -1,5 +1,5 @@
-const CACHE = 'sinchi-v22';
-const CORE = ['/', '/index.html', '/styles.css?v=20', '/main.js?v=17', '/cuenta.html', '/assets/hero_race.webp?v=2', '/fonts/archivo.woff2?v=1', '/fonts/inter.woff2?v=1', '/assets/f100.webp?v=6', '/assets/f60.webp?v=6', '/assets/favicon.png', '/icons/icon-192.png'];
+const CACHE = 'sinchi-v23';
+const CORE = ['/', '/index.html', '/styles.css?v=20', '/main.js?v=17', '/cuenta.html', '/assets/race-600.webp?v=1', '/fonts/archivo.woff2?v=1', '/fonts/inter.woff2?v=1', '/assets/f100.webp?v=6', '/assets/race-320.webp?v=1', '/assets/favicon.png', '/icons/icon-192.png'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(CORE)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
 self.addEventListener('fetch', e => {

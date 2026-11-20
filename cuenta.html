@@ -456,7 +456,7 @@ body.is-mi .shell{overflow-x:clip}
       <h1>Únete al<br><span class="grad">equipo.</span></h1>
       <p class="lead">Crea tu cuenta para separar tu SINCHI CARB, seguir tus pedidos y contarle al mundo cómo te fue en tu carrera.</p>
     </div>
-    <div class="visual"><img src="/assets/hero_race.webp?v=2" alt="SINCHI CARB RACE, sachet de 60 g"></div>
+    <div class="visual"><img src="/assets/race-600.webp?v=1" alt="SINCHI CARB RACE, sachet de 60 g"></div>
     <div class="perks">
       <div><b>Acceso anticipado</b><span>Entérate primero del lanzamiento.</span></div>
       <div><b>Tus pedidos</b><span>Todo en un solo lugar.</span></div>
@@ -733,7 +733,7 @@ const fechaLarga = new Intl.DateTimeFormat('es-PE', { month: 'long', year: 'nume
 const fechaCorta = new Intl.DateTimeFormat('es-PE', { day: 'numeric', month: 'short', year: 'numeric' });
 const fechaMes = new Intl.DateTimeFormat('es-PE', { month: 'short', year: 'numeric' });
 const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
-const imgDe = (p) => (/sachet/i.test(p) ? '/assets/f60.webp?v=6' : '/assets/f100.webp?v=6');
+const imgDe = (p) => (/sachet/i.test(p) ? '/assets/race-320.webp?v=1' : '/assets/f100.webp?v=6');
 const nombreCompleto = (u) => [u.nombre, u.apellido].filter(Boolean).join(' ');
 
 function codigoBarras(n) {
