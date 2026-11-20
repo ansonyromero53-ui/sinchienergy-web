@@ -97,3 +97,19 @@ body.lock .wa-float{display:none}
 .foot-bottom{color:#8d857c}
 .foot .fh{margin:0 0 14px;font-family:var(--body);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#FF6A1A;font-weight:600}
 @media (prefers-reduced-motion:reduce){.hero-in,.origen-pill .dot::after{animation:none}}
+/* v17: calendario y guías */
+.races{display:grid;gap:12px}
+.race{display:grid;grid-template-columns:110px 1fr;gap:22px;align-items:center;padding:20px 24px;border:1px solid #2A241F;border-radius:18px;background:linear-gradient(160deg,#17140F,#0E0C0A)}
+.race.hl{border-color:#FF6A1A}
+.race h3{margin:0 0 4px;font-family:var(--display,Archivo),sans-serif;font-stretch:110%;font-size:19px;color:#F4F1EC}
+.race .muted{margin:0;font-size:14px}
+.rdate{margin:0;font-family:Archivo,sans-serif;font-stretch:118%;font-weight:800;font-size:24px;line-height:1;color:#FF6A1A}
+.rdate span{display:block;margin-top:6px;font-family:Inter,sans-serif;font-stretch:100%;font-weight:500;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8d857c}
+.races-note{margin:18px 0 0;font-size:14px}
+.races-note a{color:#FFB27A}
+.guides{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:48px}
+.guide{display:flex;flex-direction:column;gap:8px;padding:26px;border:1px solid #2A241F;border-radius:20px;text-decoration:none;color:#F4F1EC;transition:border-color .2s}
+.guide:hover,.guide:focus-visible{border-color:#FF6A1A}
+.guide b{font-family:Archivo,sans-serif;font-stretch:110%;font-size:20px;line-height:1.25}
+.guide .muted{font-size:14px}
+@media (max-width:560px){.race{grid-template-columns:80px 1fr;gap:14px;padding:18px}.rdate{font-size:20px}}
