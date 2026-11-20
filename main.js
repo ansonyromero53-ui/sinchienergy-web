@@ -49,6 +49,7 @@ form.addEventListener('submit', async (e) => {
   try {
     const j = await fetch(API + '/novedades').then((r) => r.json());
     if (!j.novedades || !j.novedades.length) return;
+    document.getElementById('novedades').hidden = false;
     const fmt = new Intl.DateTimeFormat('es-PE', { day: 'numeric', month: 'long', year: 'numeric' });
     document.getElementById('newsList').innerHTML = j.novedades.map((n) =>
       '<article class="news-card"><span class="news-date">' + esc(fmt.format(new Date(n.fecha + 'T12:00:00'))) + '</span><h3>' + esc(n.titulo) + '</h3><p class="muted">' + esc(n.texto) + '</p></article>').join('');
