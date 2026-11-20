@@ -217,3 +217,4 @@ body.lock .wa-float{display:none}
 .ultra-tease:hover .ut-visual img{transform:translateX(-50%) translateY(-14px) rotate(-5deg)}
 @media (max-width:900px){.ultra-tease{grid-template-columns:1fr}.ut-visual{min-height:240px;order:-1}.ut-visual img{width:200px;bottom:-45%}}
 @media (prefers-reduced-motion:reduce){.ut-dot{animation:none}}
+.ut-visual img{filter:brightness(.62) contrast(1.15) saturate(.7) !important}

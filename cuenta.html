@@ -735,7 +735,7 @@ const fechaLarga = new Intl.DateTimeFormat('es-PE', { month: 'long', year: 'nume
 const fechaCorta = new Intl.DateTimeFormat('es-PE', { day: 'numeric', month: 'short', year: 'numeric' });
 const fechaMes = new Intl.DateTimeFormat('es-PE', { month: 'short', year: 'numeric' });
 const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
-const imgDe = (p) => (/sachet/i.test(p) ? '/assets/race-320.webp?v=3' : '/assets/ultra-360.webp?v=3');
+const imgDe = (p) => (/sachet/i.test(p) ? '/assets/race-320.webp?v=3' : '/assets/ultra-360.webp?v=4');
 const nombreCompleto = (u) => [u.nombre, u.apellido].filter(Boolean).join(' ');
 
 function codigoBarras(n) {
