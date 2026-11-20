@@ -1,6 +1,6 @@
 # sinchienergy.com
 
-Web pública de **SINCHI Energy**: gel deportivo hecho en Salaverry, La Libertad. Sin cafeína.
+Web pública de **SINCHI CARB**: bebida en gel de carbohidratos hecho en Salaverry, La Libertad. Sin cafeína.
 
 - `index.html`, `styles.css`, `main.js`: página principal.
 - `cuenta.html`: Club SINCHI (registro, inicio de sesión y Mi SINCHI).

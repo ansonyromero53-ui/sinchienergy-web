@@ -1,7 +1,7 @@
 {
-  "name": "SINCHI Energy",
+  "name": "SINCHI CARB",
   "short_name": "SINCHI",
-  "description": "Gel deportivo peruano. Novedades, productos y separaciones.",
+  "description": "Bebida en gel de carbohidratos hecha en Perú. Novedades, productos y separaciones.",
   "start_url": "/?app=1",
   "scope": "/",
   "display": "standalone",

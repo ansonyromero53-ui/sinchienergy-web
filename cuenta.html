@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mi cuenta · SINCHI Energy</title>
+<title>Mi cuenta · SINCHI CARB</title>
 <meta name="description" content="Crea tu cuenta SINCHI o inicia sesión para ver tus separaciones y enterarte primero del lanzamiento.">
 <meta name="robots" content="noindex">
 <link rel="icon" href="/assets/favicon.png">
@@ -454,7 +454,7 @@ body.is-mi .shell{overflow-x:clip}
     <div class="side-copy">
       <p class="kicker">Club SINCHI · Próximamente</p>
       <h1>Únete al<br><span class="grad">equipo.</span></h1>
-      <p class="lead">Crea tu cuenta para separar tu gel deportivo, seguir tus pedidos y contarle al mundo cómo te fue en tu carrera.</p>
+      <p class="lead">Crea tu cuenta para separar tu SINCHI CARB, seguir tus pedidos y contarle al mundo cómo te fue en tu carrera.</p>
     </div>
     <div class="visual"><img src="/assets/hero_std.webp?v=6" alt="Envases SINCHI: doypack de 100 g y sachet de 60 g"></div>
     <div class="perks">
@@ -632,7 +632,7 @@ body.is-mi .shell{overflow-x:clip}
       </section>
 
       <p class="foot" id="legal">Al continuar, aceptas la <a href="/privacidad.html">Política de privacidad</a> y los <a href="/terminos.html">Términos de uso</a> de SINCHI.</p>
-      <p class="brandline">SINCHI Energy &nbsp;/&nbsp; Hecho en La Libertad</p>
+      <p class="brandline">SINCHI CARB &nbsp;/&nbsp; Hecho en La Libertad</p>
     </div>
   </main>
 </div>
@@ -900,7 +900,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
 
 // invitar
 const LINK = 'https://sinchienergy.com/?utm_source=invita';
-$('#inviteWa').href = 'https://wa.me/?text=' + encodeURIComponent('Ya estoy en el Club SINCHI, el gel deportivo hecho en Trujillo. Separa el tuyo aquí: ' + LINK);
+$('#inviteWa').href = 'https://wa.me/?text=' + encodeURIComponent('Ya estoy en el Club SINCHI, la bebida en gel de carbohidratos hecha en La Libertad. Separa el tuyo aquí: ' + LINK);
 $('#inviteCopy').addEventListener('click', async (e) => {
   const b = e.currentTarget;
   try { await navigator.clipboard.writeText(LINK); b.textContent = 'Enlace copiado'; setTimeout(() => { b.textContent = 'Copiar enlace'; }, 2200); }
@@ -1052,7 +1052,7 @@ async function imagenDorsal(u) {
   c.restore();
   // pie
   c.textAlign = 'left'; c.font = '500 34px Inter'; c.fillStyle = '#B7AEA4';
-  c.fillText('Gel deportivo hecho en Salaverry. Sin cafeína.', 84, H - 250);
+  c.fillText('SINCHI CARB · Hecho en Salaverry. Sin cafeína.', 84, H - 250);
   c.font = '700 44px Inter'; c.fillStyle = '#F4F1EC'; c.fillText('sinchienergy.com', 84, H - 170);
   c.font = '600 34px Inter'; c.fillStyle = '#FF6A1A'; c.fillText('@sinchienergy', 84, H - 116);
   return new Promise((ok) => cv.toBlob(ok, 'image/png'));
