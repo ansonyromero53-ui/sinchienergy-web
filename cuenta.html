@@ -12,8 +12,9 @@
 <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/archivo.woff2?v=1" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter.woff2?v=1" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:'Archivo';font-style:normal;font-display:swap;font-weight:100 900;font-stretch:62% 125%;src:url(/fonts/archivo.woff2?v=1) format('woff2')}@font-face{font-family:'Inter';font-style:normal;font-display:swap;font-weight:100 900;src:url(/fonts/inter.woff2?v=1) format('woff2')}</style>
 <style>
 :root{--ink:#0A0908;--ink2:#12100E;--line:#2A241F;--text:#F4F1EC;--muted:#8d857c;--soft:#b7aea4;--org:#FF6A1A;--org2:#FFB27A}
 *{box-sizing:border-box}
@@ -440,7 +441,7 @@ body.is-mi .shell{overflow-x:clip}
 .bib-share:disabled{opacity:.7;cursor:default;transform:none}
 </style>
 <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-M9N4279ZE2"></script>
+<script>addEventListener('load',function(){setTimeout(function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-M9N4279ZE2';document.head.appendChild(s);},1500);});</script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-M9N4279ZE2',{allow_google_signals:false,allow_ad_personalization_signals:false});</script>
 </head>
 <body>

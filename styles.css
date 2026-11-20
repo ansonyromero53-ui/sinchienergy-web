@@ -85,3 +85,15 @@ body.lock .wa-float{display:none}
 .pay-m{display:inline-flex;align-items:center;gap:8px;padding:7px 12px 7px 7px;border:1px solid #2f2822;border-radius:999px;font-size:14px;color:#F4F1EC;font-variant-numeric:tabular-nums}
 .pay-m b{font-size:11px;letter-spacing:.06em;padding:3px 8px;border-radius:999px;color:#fff}
 .pay-m .yape{background:#6C2C8C}.pay-m .plin{background:#0A8F88}
+/* v16: rendimiento y accesibilidad */
+.hero-in{animation:heroIn .9s cubic-bezier(.2,.7,.2,1) both}.hero-in2{animation-delay:.12s}
+@keyframes heroIn{from{transform:translateY(18px)}to{transform:none}}
+.origen-pill.is-wait{visibility:hidden}
+.origen-pill .dot{position:relative;box-shadow:none!important}
+.origen-pill .dot::after{content:"";position:absolute;inset:0;border-radius:50%;background:#FF6A1A;animation:latido2 1.8s ease-out infinite}
+@keyframes latido2{from{transform:scale(1);opacity:.6}to{transform:scale(2.6);opacity:0}}
+.hero h1{animation-iteration-count:2!important}
+.track{color:#8d857c!important}
+.foot-bottom{color:#8d857c}
+.foot .fh{margin:0 0 14px;font-family:var(--body);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#FF6A1A;font-weight:600}
+@media (prefers-reduced-motion:reduce){.hero-in,.origen-pill .dot::after{animation:none}}

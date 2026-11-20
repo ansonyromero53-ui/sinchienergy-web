@@ -168,8 +168,8 @@ document.getElementById('year').textContent = new Date().getFullYear();
 (async () => {
   try {
     const j = await fetch(API + '/cuenta/origen').then((r) => r.json());
-    if (!j.ok || !(j.restantes > 0)) return;
+    if (!j.ok || !(j.restantes > 0)) throw 0;
     document.getElementById('origenN').textContent = j.restantes;
-    document.getElementById('origenPill').hidden = false;
-  } catch (_) {}
+    document.getElementById('origenPill').classList.remove('is-wait');
+  } catch (_) { document.getElementById('origenPill').hidden = true; }
 })();
