@@ -167,3 +167,5 @@ body.lock .wa-float{display:none}
 .teaser-form input:focus{outline:2px solid #FF6A1A;outline-offset:1px;border-color:transparent}
 .teaser-form .btn{padding:12px 20px}
 .teaser-msg{margin:4px 0 0;font-size:13px;color:#b7aea4;min-height:18px}
+.tilt img.heroimg-race{height:min(66vh,580px) !important;width:auto !important}
+@media (max-width:900px){.tilt img.heroimg-race{height:min(52vh,420px) !important}}
