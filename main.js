@@ -63,10 +63,14 @@ const sel = document.getElementById('prodSel');
     // Si en el admin el formato se escribe como "Sachet 60 g · Maracuyá", se agrupa por formato y se elige el sabor
     const grupos = {};
     j.productos.forEach((p) => {
-      const [fmt, sabor] = String(p.formato).split(' · ');
-      (grupos[fmt] = grupos[fmt] || []).push({ id: p.id, txt: sabor ? fmt + ' · ' + sabor : fmt, sabor });
+      const [f0, sabor] = String(p.formato).split(' · ');
+      // "SINCHI CARB RACE" -> "RACE · Sachet 60 g"
+      const linea = String(p.nombre || '').replace(/^SINCHI(\s+CARB)?\s*/i, '').trim();
+      const fmt = linea ? linea + ' · ' + f0 : f0;
+      (grupos[fmt] = grupos[fmt] || []).push({ id: p.id, txt: sabor ? fmt + ' · ' + sabor : fmt, sabor, linea });
     });
-    sel.innerHTML = '<option value="">Elige</option>' + Object.entries(grupos).map(([fmt, ps]) =>
+    const orden = (k) => (/^RACE/i.test(k) ? 0 : 1);
+    sel.innerHTML = '<option value="">Elige</option>' + Object.entries(grupos).sort((x, y) => orden(x[0]) - orden(y[0])).map(([fmt, ps]) =>
       ps.length > 1 || ps[0].sabor
         ? '<optgroup label="' + esc(fmt) + '">' + ps.map((p) => '<option value="' + p.id + '">' + esc(p.txt) + '</option>').join('') + '</optgroup>'
         : '<option value="' + ps[0].id + '">' + esc(ps[0].txt) + '</option>').join('');
