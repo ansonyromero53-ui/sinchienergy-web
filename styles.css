@@ -222,3 +222,8 @@ body.lock .wa-float{display:none}
 /* v26 · marca SINCHI CARB */
 .hero h1 .h1-carb{display:block;font-size:.4em;letter-spacing:.34em;line-height:1;margin-top:.2em;padding-left:.03em;background:none;-webkit-text-fill-color:#EDEDEF;color:#EDEDEF}
 @media (max-width:640px){.logo span{font-size:16px;letter-spacing:.1em}}
+
+/* v27 · foto fundador estudio */
+.fund-foto{aspect-ratio:900/992}
+.fund-foto picture{position:absolute;inset:0;z-index:1}
+.fund-foto img{filter:none!important;object-position:50% 30%}
