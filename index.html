@@ -33,7 +33,7 @@
 <meta name="twitter:image" content="https://sinchienergy.com/assets/og.jpg?v=5">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"SINCHI CARB","alternateName":"SINCHI","url":"https://sinchienergy.com/","logo":"https://sinchienergy.com/icons/icon-512.png","slogan":"Más fuerte que tus problemas.","sameAs":["https://www.instagram.com/sinchienergy/","https://www.tiktok.com/@sinchienergy"]}</script>
 <link rel="preload" as="image" href="assets/race-600.webp?v=3" fetchpriority="high">
-<link rel="stylesheet" href="styles.css?v=28">
+<link rel="stylesheet" href="styles.css?v=29">
 <!-- Google Analytics -->
 <script>addEventListener('load',function(){setTimeout(function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-M9N4279ZE2';document.head.appendChild(s);},1500);});</script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-M9N4279ZE2',{allow_google_signals:false,allow_ad_personalization_signals:false});</script>
@@ -162,10 +162,36 @@
     <ol class="road-steps">
       <li class="is-done"><span class="rs-state">Listo</span><b>La marca</b><p>Nombre, envase y comunidad.</p></li>
       <li class="is-now"><span class="rs-state">En curso</span><b>La fórmula</b><p>Desarrollo y pruebas con un centro de innovación tecnológica de La Libertad.</p></li>
-      <li><span class="rs-state">Siguiente</span><b>Pruebas de tolerancia</b><p>Que caiga bien al estómago en pleno esfuerzo, antes de salir a la venta.</p></li>
+      <li><span class="rs-state">Siguiente</span><b>Pruebas de tolerancia</b><p>Que caiga bien al estómago en pleno esfuerzo, antes de salir a la venta. <a class="rs-link" href="#probadores">Anótate como probador</a></p></li>
       <li><span class="rs-state">Siguiente</span><b>Registro sanitario</b><p>Trámite ante DIGESA como bebida en gel.</p></li>
       <li><span class="rs-state">Meta</span><b>Lanzamiento en Trujillo</b><p>Primero para quienes lo separaron.</p></li>
     </ol>
+  </div>
+  <div class="prob reveal" id="probadores">
+    <div class="prob-copy">
+      <h3>Pruébalo antes<br>que nadie.</h3>
+      <p>Buscamos corredores, ciclistas y triatletas de La Libertad para probar las primeras muestras en sus entrenamientos y contarnos cómo les cae. Tu opinión decide cómo sale SINCHI CARB.</p>
+      <ul class="prob-list">
+        <li>Recibes muestras sin costo cuando estén listas.</li>
+        <li>Nos cuentas cómo te fue, por WhatsApp.</li>
+        <li>Tu nombre queda entre los primeros probadores de la marca.</li>
+      </ul>
+    </div>
+    <form class="sep-form prob-form" id="probForm" novalidate>
+      <div class="row2 eq">
+        <label>Nombre<input name="nombre" autocomplete="name" required></label>
+        <label>Celular<input name="celular" inputmode="tel" autocomplete="tel" placeholder="9XX XXX XXX" required></label>
+      </div>
+      <div class="row2 eq">
+        <label>Deporte<select name="deporte" required><option value="">Elige uno</option><option>Running de calle</option><option>Trail</option><option>Ciclismo</option><option>Triatlón</option><option>Otro</option></select></label>
+        <label><span>Ciudad <i class="opt">(opcional)</i></span><input name="ciudad" placeholder="Trujillo, Salaverry…"></label>
+      </div>
+      <label><span>Tu próxima carrera <i class="opt">(opcional)</i></span><input name="carrera" placeholder="Ej. Media Maratón de Trujillo"></label>
+      <label class="prob-ok"><input type="checkbox" name="acepto"><span>Acepto que SINCHI CARB me escriba por WhatsApp para coordinar las muestras, según la <a href="/privacidad.html">Política de privacidad</a>.</span></label>
+      <input name="web" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button type="submit" class="btn btn-light">Quiero ser probador</button>
+      <p class="form-msg" id="probMsg" role="status"></p>
+    </form>
   </div>
 </section>
 
@@ -250,6 +276,19 @@
         <div class="paybox mini"><p class="pay-k">Pagas al confirmar tu pedido</p><div class="paytiles"><button type="button" class="paytile" data-copy="970567719" aria-label="Copiar número de Yape: 970 567 719"><img src="assets/pago-yape.webp?v=1" width="32" height="32" alt=""><span class="pt-txt"><b>Yape</b><em>970 567 719</em></span><span class="pt-act">Copiar</span></button><button type="button" class="paytile" data-copy="960259648" aria-label="Copiar número de Plin: 960 259 648"><img src="assets/pago-plin.webp?v=1" width="32" height="32" alt=""><span class="pt-txt"><b>Plin</b><em>960 259 648</em></span><span class="pt-act">Copiar</span></button></div></div>
         <p class="form-msg" id="sepMsg" role="status"></p>
       </form>
+    </div>
+  </div>
+</section>
+
+<section class="wrap clubs reveal" id="clubes">
+  <div class="clubs-in">
+    <div>
+      <h2>¿Tienes un club, un gimnasio o una tienda?</h2>
+      <p class="muted">Llevamos SINCHI CARB a clubes de running y ciclismo, gimnasios, boxes y tiendas de deporte de La Libertad. Precios por cantidad y atención directa con el fundador.</p>
+    </div>
+    <div class="clubs-cta">
+      <a class="btn btn-light" href="https://wa.me/51970567719?text=Hola%20SINCHI%20CARB%2C%20tengo%20un%20club%20o%20tienda%20y%20quiero%20informaci%C3%B3n%20para%20vender%20o%20comprar%20por%20cantidad." target="_blank" rel="noopener" data-ev="clubes_whatsapp">Escribir por WhatsApp</a>
+      <a class="clubs-mail" href="mailto:hola@sinchienergy.com?subject=Clubes%20y%20tiendas%20%C2%B7%20SINCHI%20CARB">hola@sinchienergy.com</a>
     </div>
   </div>
 </section>
@@ -398,7 +437,7 @@
 
 <a class="wa-float" href="https://wa.me/51970567719?text=Hola%20SINCHI%20CARB%2C%20quiero%20saber%20m%C3%A1s%20sobre%20el%20gel." target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.85 9.85 0 0 0 12.04 2zm0 18.15h-.01a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.55-3.7 8.25-8.24 8.25zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg><span>Escríbenos</span></a>
 
-<script src="main.js?v=18"></script>
+<script src="main.js?v=19"></script>
 <script>
 (function(){const n=document.getElementById('navwrap');const f=()=>n.classList.toggle('scrolled',scrollY>40);addEventListener('scroll',f,{passive:true});f();})();
 </script>

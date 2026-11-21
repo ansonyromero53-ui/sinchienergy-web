@@ -201,3 +201,25 @@ if (uf) uf.addEventListener('submit', async (e) => {
     if (window.gtag) gtag('event', 'avisame_ultra');
   } catch (x) { msg.textContent = x.message; }
 });
+
+
+// Probadores
+const pf = document.getElementById('probForm');
+if (pf) pf.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const msg = document.getElementById('probMsg'), btn = pf.querySelector('button[type=submit]');
+  const d = Object.fromEntries(new FormData(pf)); d.acepto = pf.acepto.checked;
+  if (!d.nombre.trim() || d.celular.replace(/\D/g, '').length < 9) { msg.textContent = 'Escribe tu nombre y un celular de 9 dígitos.'; return; }
+  if (!d.deporte) { msg.textContent = 'Elige tu deporte.'; return; }
+  if (!d.acepto) { msg.textContent = 'Marca la casilla para que podamos escribirte.'; return; }
+  btn.disabled = true; msg.textContent = 'Enviando…';
+  try {
+    const j = await post('/probador', d);
+    pf.reset();
+    msg.textContent = j.repetido ? 'Ya estabas anotado. Te escribiremos por WhatsApp cuando las muestras estén listas.'
+      : '¡Listo! Estás en la lista de probadores. Te escribiremos por WhatsApp cuando las muestras estén listas.';
+    if (window.gtag) gtag('event', 'probador');
+  } catch (x) { msg.textContent = x.message; }
+  btn.disabled = false;
+});
+document.querySelectorAll('[data-ev]').forEach((a) => a.addEventListener('click', () => { if (window.gtag) gtag('event', a.dataset.ev); }));

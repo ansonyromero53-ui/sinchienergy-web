@@ -261,3 +261,26 @@ body.lock .wa-float{display:none}
  .road-steps li{grid-template-columns:1fr}
  .rs-state{grid-row:auto;margin-bottom:4px}
 }
+
+/* v29 · probadores + clubes */
+.rs-link{color:#FF8A3D;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.prob{margin-top:110px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(30px,5vw,80px);padding:clamp(28px,4vw,52px);border:1px solid #2A241F;border-radius:28px;background:radial-gradient(70% 90% at 0% 0%,rgba(255,106,26,.14),transparent 60%),linear-gradient(140deg,#17130F,#0C0A08 60%);scroll-margin-top:90px}
+.prob-copy h3{margin:0 0 18px;font-family:Archivo,Inter,sans-serif;font-stretch:118%;font-weight:800;font-size:clamp(30px,3.4vw,48px);line-height:1.02;color:#F4F1EC}
+.prob-copy>p{margin:0 0 24px;color:#A7A099;line-height:1.7;font-size:16px;max-width:44ch}
+.prob-list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.prob-list li{position:relative;padding-left:26px;color:#D9D3CC;font-size:15px;line-height:1.5}
+.prob-list li:before{content:"";position:absolute;left:0;top:.5em;width:12px;height:2px;background:#FF6A1A}
+.prob-form label.prob-ok{flex-direction:row;align-items:flex-start;gap:12px;text-transform:none;letter-spacing:0;font-size:13px;line-height:1.5;color:#9B948D}
+.prob-form label.prob-ok input{width:18px;height:18px;flex:0 0 18px;margin-top:2px;padding:0;border-radius:5px;-webkit-appearance:auto;appearance:auto;accent-color:#FF6A1A}
+.prob-form label.prob-ok a{color:#D9D3CC;text-decoration:underline}
+.prob-form .btn{align-self:flex-start}
+.clubs{margin-top:40px;margin-bottom:120px}
+.clubs-in{display:grid;grid-template-columns:minmax(0,1.4fr) auto;gap:40px;align-items:center;padding:clamp(28px,4vw,48px);border-top:1px solid #24201C;border-bottom:1px solid #24201C}
+.clubs h2{margin:0 0 12px;font-family:Archivo,Inter,sans-serif;font-stretch:118%;font-weight:800;font-size:clamp(24px,2.6vw,34px);line-height:1.12;color:#F4F1EC;max-width:22ch}
+.clubs .muted{margin:0;max-width:56ch;line-height:1.65}
+.clubs-cta{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.clubs-mail{font-size:14px;color:#9B948D;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:820px){
+ .prob{grid-template-columns:1fr;margin-top:80px}
+ .clubs-in{grid-template-columns:1fr;gap:24px;padding:32px 0}
+}
